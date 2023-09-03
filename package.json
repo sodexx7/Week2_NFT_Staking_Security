@@ -1,0 +1,10 @@
+{
+    "name": "Week2_NFT_Staking_Security",
+    "lockfileVersion": 3,
+    "requires": true,
+    "packages": {},
+    "type": "module",
+    "dependencies": {
+        "@openzeppelin/merkle-tree": "^1.0.5"
+    }
+}

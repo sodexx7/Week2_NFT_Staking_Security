@@ -3,124 +3,147 @@ pragma solidity 0.8.17;
 
 import {RewardToken} from "./RewardToken.sol";
 
-import {IERC721Receiver} from "@openzeppelin/contracts//token/ERC721/IERC721Receiver.sol";
+import {IERC721Receiver} from "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
+
+import {Context} from "@openzeppelin/contracts//utils/Context.sol";
 
 import {NFT721} from "./NFT721.sol";
-
-import "forge-std/console.sol";
 
 /// @title
 /**
  * @title support ERC721 NFT to stake, NFT1 NFT
  * @author
  * @notice
- * @
+ * @dev User can stake a NFT under the NFT721 and get the corrospending RewardToken, which based on the staked period.
+ * User can withdraw this NFT anytime, and can withdraw the RewardToken.
+ *
+ * 1: NFT hasn't been withdraw
+ *
+ * NFT has been withdraw,but the rewards not get
+ *
+ * 1. how to calcuate the rewarding ERC20 token
+ * 2. data structure desgin？？
+ *
+ *
  */
-contract StakingContract is IERC721Receiver {
-    // struct StakeInfo {
-    //     uint256 tokenId;
-    //     uint256 lastTimeStampe;
-    // }
-
-    event Stake(address indexed staker, uint256 indexed tokenId, uint256 timestampe);
-
-    // time storage the nft sender, the calcuation of erc20
-    // 10 ERC20 PER 24 HOURS
-
-    // operations
-    // staker, stake, withdraw
-    // stake timestampe
-    // one address maybe stake more nfts
-
-    // how to confirm one nft?
-    // nft adress and tokeID
-
-    mapping(uint256 => address) _tokenIdAddress;
-
-    // tokenID->last deposit timestampe
-    mapping(uint256 => uint256) _toekIdTimeStampe;
-
-    // should adjust?
-    uint256 constant REWARD_PER_27_SECONDS = 3_125_000_000_000_000;
-
+contract StakingContract is IERC721Receiver, Context {
     NFT721 _nft1;
     RewardToken _rewardToken;
 
-    // todo event summary
+    // every 27 sec, can get the 3125000000000000 ERC20 token，so that 24 hours can get 10 ERC20 token
+    uint256 constant REWARD_EACH_27_SECONDS = 3_125_000_000_000_000;
 
-    // stake: transfer the nft to this address?
+    event Stake(address indexed staker, uint256 indexed tokenId, uint256 timestampe);
+
+    event WithdrawNFT(address indexed staker, uint256 indexed tokenId);
+
+    //  mapping a staker address to a nft's cumulative reward  while this nft was been withdrawed.
+    // only using when nft was withdrawed, but the reward was not witdraw
+    mapping(address => mapping(uint256 => uint256)) private _cumuRewardsEachNFT;
+
+    // mapping a nft to the staking addresss
+    mapping(uint256 => address) private _originalOwner;
+
+    // mapping a nft to its last stake timestampe
+    mapping(uint256 => uint256) private _stakeLastBeginTime;
 
     constructor(address nft1, address rewardToken) {
         _nft1 = NFT721(nft1);
         _rewardToken = RewardToken(rewardToken);
     }
 
-    function onERC721Received(
-        address operator,
-        address from,
-        uint256 tokenId,
-        bytes calldata data
-    ) external returns (bytes4){
-        // require(from == address(_nft1),"illegal call");
-        _toekIdTimeStampe[tokenId] = block.timestamp;// should adjust.
+    function onERC721Received(address operator, address from, uint256 tokenId, bytes calldata data)
+        external
+        returns (bytes4)
+    {
+        _stakeLastBeginTime[tokenId] = block.timestamp;
+
+        _originalOwner[tokenId] = from;
+
+        emit Stake(from, tokenId, block.timestamp);
 
         return IERC721Receiver.onERC721Received.selector;
     }
 
-    function stake(uint256 tokenId) public {
-        // todo tokeID owner check?
-        // check tokeId whether or not stake?
-        _nft1.safeTransferFrom(msg.sender, address(this), tokenId);
-
-        // _staker_info[msg.sender] = StakeInfo(tokenId, block.timestamp);
-        _toekIdTimeStampe[tokenId] = block.timestamp;
-
-        _tokenIdAddress[tokenId] = msg.sender;
-
-        emit Stake(msg.sender, tokenId, block.timestamp);
-
-        // // this function perhaps has some problems ???
-        // _rewardToken.mint(msg.sender, 20 * 10 ** _rewardToken.decimals());
-    }
-
-    // // calcaute the rewards
-    // function calculateReward(address staker,address staker,uint256 tokenId) internal returns (uint256 ) {
-    //     // Users can send their NFTs and withdraw 10 ERC20 tokens every 24 hours
-
-    //     // 10 ERC20 / 24 hours (60 * 60 * 24;)
-    //     //  5 ERC20 /12 hours
-    //     //  1 ERC20 / 2.4hour
-
-    //     // 10 ERC20 / 24 hours
-    //     // 10*10**18/86400
-    //     // greatest common multiple(3200.0)
-    //     // 3125000000000000(0.003125*10**18) / 27sec
-    //     // every 27 sec, can get the 3125000000000000 ERC20 token.
-
-    //     (block.timestamp-_toekIdTimeStampe[tokenId])%27*REWARD_PER_27_SECONDS;
+    // /**
+    //  * @dev the staker deposit one NFT, and the stakingContract begin to calcuate the staking time, which was recorded while the stakingContract received the nft,
+    //  * can see the function onERC721Received.
+    //  * @param tokenId  staked NFT
+    //  */
+    // function stake(uint256 tokenId) public {
+    //     _nft1.safeTransferFrom(msg.sender, address(this), tokenId);
 
     // }
 
-    // withdraw 10 ERC20 tokens every 24 hours
-    // check only the staker can withdraw
-    function withdrawRewards(uint256 tokenId) public {
-        console.log("block.timestamp",block.timestamp);
-        uint256 rewardsNum = (block.timestamp - _toekIdTimeStampe[tokenId]) / 27 * REWARD_PER_27_SECONDS;
-        console.log("rewardsNum",rewardsNum);
-        _rewardToken.mint(msg.sender, rewardsNum);
-    }
-
+    /**
+     * @dev staker withdraw a NFT, only the nft owner can withdraw the NFT,
+     * if there are rewards that are not withdrawed, should add the rewards to the cumulative rewards
+     * @param tokenId staked NFT
+     * TODO the execute order has some problems?
+     */
     function withdrawNFT(uint256 tokenId) public {
-        // check the safeTransferFrom is appropriate??
-        require(_tokenIdAddress[tokenId] == msg.sender, "Can't withdraw this NFT");
+        require(_originalOwner[tokenId] == msg.sender, "Not original owner");
 
         _nft1.safeTransferFrom(address(this), msg.sender, tokenId);
 
-        delete _tokenIdAddress[tokenId];
+        emit WithdrawNFT(msg.sender, tokenId);
 
-        // update the tokenID
+        // calculate whether or not has rewards?
+        // if has, update the rewards
+        uint256 rewardTokenAmount = calculateRewards(tokenId);
+        if (rewardTokenAmount > 0) {
+            _cumuRewardsEachNFT[msg.sender][tokenId] = _cumuRewardsEachNFT[msg.sender][tokenId] + rewardTokenAmount;
+        }
 
-        // if don't withdraw the reward, directly withdraw the NFT how to deal with the situation?
+        delete _originalOwner[tokenId];
+        delete _stakeLastBeginTime[tokenId];
+    }
+
+    /**
+     * @dev Withdraw the rewards, two considerations:
+     * 1:if the nft is staked,the withdrawAmount includs the staking rewards and the history rewards(if there are reward not withdraw),and should update the beginning
+     * stake time
+     * 2: if the nft is not staked, directly check whether the staker has culimateReward and withdraw.
+     * each withdraw, should withdraw all rewards including the history rewards.
+     * @param tokenId staked NFT
+     * // TODO , complexity???
+     */
+    function withdrawRewards(uint256 tokenId) public {
+        // history rewards, if have should withdraw
+        uint256 cumuReward = _cumuRewardsEachNFT[msg.sender][tokenId];
+        require(_originalOwner[tokenId] == msg.sender || cumuReward > 0, "No reward can withdraw");
+
+        // check nft is staked
+        if (_originalOwner[tokenId] == msg.sender) {
+            uint256 rewardTokenAmount = calculateRewards(tokenId);
+            require(rewardTokenAmount + cumuReward > 0, "No reward for now");
+            _rewardToken.mint(msg.sender, rewardTokenAmount + cumuReward);
+            _stakeLastBeginTime[tokenId] = block.timestamp;
+        } else {
+            // nft has been withdrawed,check the address with the tokenID have enough reward can withdraw
+            require(cumuReward > 0, "No history reward can withdraw");
+            _rewardToken.mint(msg.sender, cumuReward);
+        }
+
+        _cumuRewardsEachNFT[msg.sender][tokenId] = 0;
+    }
+
+    /**
+     * @dev calculate the rewards during the nft staking
+     * every 27 sec, can get the 3125000000000000 ERC20 token. so that 24 hours can get 10 ERC20 token, whose decimal is 10**18.
+     *
+     * how to get the 27 seconds?
+     *  10 ERC20 = 10*10**18 / 24 hours =  60 * 60 * 24
+     *  10*10**18/60 * 60 * 24 = 100000000000000000/864 the Greatest Common Factor for the two numbers are 32.
+     * (100000000000000000/32) / (864/32) = 3125000000000000/27
+     *
+     *  It's convence to calcuate the rewards, which can get the 10ERC20 Tokens every 24 hours, and no lossing of precision.
+     *
+     * @param tokenId staked NFT
+     */
+    function calculateRewards(uint256 tokenId) public view returns (uint256 rewardToken) {
+        require(_stakeLastBeginTime[tokenId] > 0, "this nft not staking");
+        return (block.timestamp - _stakeLastBeginTime[tokenId]) / 27 * REWARD_EACH_27_SECONDS;
     }
 }
 
@@ -153,3 +176,5 @@ contract StakingContract is IERC721Receiver {
 // 3.  ERC 2918 royalty correct usage? how to implement? royalty specific meaning??? doing 250, to how to distribute the value
 // 4.  the interface quesitons?  how to use the ERC 2918, the related question ERC1556
 // 5.  security problem: stake NFTs with safetransfer/ Ownable2Step
+// 6. explain the data structure
+// 7. event test

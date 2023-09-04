@@ -15,11 +15,11 @@ contract NFT721 is ERC721, ERC2981, Ownable2Step {
     BitMaps.BitMap private _superMintList;
 
     // another solution <=20 decreament???
-    uint8 private constant TOTAL_SUPPLY = 20;
-    uint8 private _tokenCounter;
+    uint8 private constant MAX_SUPPLY = 20;
+    uint8 public totalSupply;
 
     string public constant TOKEN_URI =
-        "ipfs://bafybeig37ioir76s7mg5oobetncojcm3c3hxasyd4rvid4jqhy4gkaheg4/?filename=0-PUG.json";
+        "test url";
 
     /**
      * @dev See {IERC165-supportsInterface}.
@@ -32,12 +32,13 @@ contract NFT721 is ERC721, ERC2981, Ownable2Step {
     constructor(bytes32 merkleRoot) ERC721("NFT721", "NFT1") {
         _merkleRoot = merkleRoot;
         // set the reward rate as 2.5%, the least price should bigger than 10**4wei
-        _setDefaultRoyalty(address(this), 250);
+        _setDefaultRoyalty(owner(), 250);
     }
 
     // This implementation support mint one nft per address
     function mintNftByProof(bytes32[] calldata proof, uint256 index) external payable {
-        require(_tokenCounter < TOTAL_SUPPLY, "Beyond totalSupply");
+        require(totalSupply < MAX_SUPPLY, "Beyond totalSupply");
+
         require(msg.value >= 0.01 ether, "NOT Enough ETH to mint at a discount");
 
         // BitMaps.sol and MerkleProof check
@@ -50,16 +51,20 @@ contract NFT721 is ERC721, ERC2981, Ownable2Step {
         // set airdrop as claimed
         BitMaps.setTo(_superMintList, index, true);
 
-        _safeMint(msg.sender, _tokenCounter);
-        _tokenCounter = _tokenCounter + 1;
+        _safeMint(msg.sender, totalSupply);
+        totalSupply = totalSupply + 1;
     }
 
     function mintNft() external payable {
-        require(_tokenCounter < TOTAL_SUPPLY, "Beyond totalSupply");
+        require(totalSupply < MAX_SUPPLY, "Beyond totalSupply");
         require(msg.value >= 0.1 ether, "NOT Enough ETH to mint");
 
-        _safeMint(msg.sender, _tokenCounter);
-        _tokenCounter = _tokenCounter + 1;
+        _safeMint(msg.sender, totalSupply);
+        totalSupply = totalSupply + 1;
+    }
+
+    function widthDrawBalance() external onlyOwner {
+        payable(owner()).transfer(address(this).balance);
     }
 
     function tokenURI(uint256 tokenId) public view override returns (string memory) {
@@ -68,12 +73,16 @@ contract NFT721 is ERC721, ERC2981, Ownable2Step {
     }
 
     function getTokenCounter() public view returns (uint256) {
-        return _tokenCounter;
+        return totalSupply;
     }
 
     function _verifyProof(bytes32[] memory proof, uint256 index, address addr) private view {
         bytes32 leaf = keccak256(bytes.concat(keccak256(abi.encode(addr, index))));
         require(MerkleProof.verify(proof, _merkleRoot, leaf), "Invalid proof");
+    }
+
+    function renounceOwnership() public pure override {
+        require(false, "can't renounce");
     }
 }
 

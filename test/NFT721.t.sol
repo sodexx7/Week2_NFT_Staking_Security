@@ -13,7 +13,10 @@ contract NFT721Test is Test {
 
     address public address2 = address(0x22);
 
+    address public owner = address(0x88);
+
     function setUp() external {
+        vm.prank(owner);
         nftContract = new NFT721(0x5a62e056db9887c17d8ded5d939c167f0aab07ac728c32753b86ca0ffa0b3362);
     }
 
@@ -94,6 +97,57 @@ contract NFT721Test is Test {
         vm.prank(address2);
         vm.expectRevert();
         nftContract.mintNft{value: 0.01 ether}();
+    }
+
+    function testOwnerWithdrawBalance() external {
+        uint256 beforeMintBalance = address(owner).balance;
+
+        // two address mint NFT. totoal receive 0.11 ether
+        vm.deal(address2, 0.1 ether);
+        vm.prank(address2);
+        nftContract.mintNft{value: 0.1 ether}();
+
+        bytes32[] memory proof = new bytes32[](3);
+        proof[0] = 0x8138140fea4d27ef447a72f4fcbc1ebb518cca612ea0d392b695ead7f8c99ae6;
+        proof[1] = 0xc0583ede9ecfa7d0d4523cfb136f87e9aa9637d0918943863c3e9daa5e52d9b7;
+        proof[2] = 0x57012ddd6abe4782cf2c994aee913e286c9135a96a27d3e746a89dccc80acf35;
+        uint256 index = 9;
+        vm.deal(address1, 0.01 ether);
+        vm.startPrank(address1);
+        nftContract.mintNftByProof{value: 0.01 ether}(proof, index);
+        vm.stopPrank();
+
+        // owner withdraw balance should equal 0.11 ether
+        vm.prank(owner);
+        nftContract.widthDrawBalance();    
+        uint256 afterMintBalance = address(owner).balance;
+
+        assertEq(afterMintBalance - beforeMintBalance, 0.11 ether);
+    }
+
+    // current feature: the owner will receive a reward rate of 2.5% of any NFT. 
+    // but when and where  the owner will receive, not implemented, just show the royalty info
+    function test_RoyaltyInfo() external {
+
+        // address1 mint a nft
+        bytes32[] memory proof = new bytes32[](3);
+        proof[0] = 0x8138140fea4d27ef447a72f4fcbc1ebb518cca612ea0d392b695ead7f8c99ae6;
+        proof[1] = 0xc0583ede9ecfa7d0d4523cfb136f87e9aa9637d0918943863c3e9daa5e52d9b7;
+        proof[2] = 0x57012ddd6abe4782cf2c994aee913e286c9135a96a27d3e746a89dccc80acf35;
+        uint256 index = 9;
+        vm.deal(address1, 0.01 ether);
+        vm.startPrank(address1);
+        nftContract.mintNftByProof{value: 0.01 ether}(proof, index);
+        vm.stopPrank();
+
+        // show the nft royalty info
+        (address receiver, uint256 royaltyAmount) = nftContract.royaltyInfo(0, 100 ether);
+        assertEq(receiver,owner );
+        assertEq(royaltyAmount,2.5 ether);
+
+        (receiver, royaltyAmount) = nftContract.royaltyInfo(0, 1 ether);
+        assertEq(receiver,owner );
+        assertEq(royaltyAmount,0.025 ether);
 
     }
 

@@ -4,7 +4,7 @@ pragma solidity 0.8.17;
 import "forge-std/Test.sol";
 import "forge-std/console.sol";
 
-import {NFT721} from "src/NFT721.sol";
+import {NFT721} from "src/ SmartContractTrio/NFT721.sol";
 
 contract NFT721Test is Test {
     NFT721 nftContract;
@@ -119,16 +119,15 @@ contract NFT721Test is Test {
 
         // owner withdraw balance should equal 0.11 ether
         vm.prank(owner);
-        nftContract.widthDrawBalance();    
+        nftContract.widthDrawBalance();
         uint256 afterMintBalance = address(owner).balance;
 
         assertEq(afterMintBalance - beforeMintBalance, 0.11 ether);
     }
 
-    // current feature: the owner will receive a reward rate of 2.5% of any NFT. 
+    // current feature: the owner will receive a reward rate of 2.5% of any NFT.
     // but when and where  the owner will receive, not implemented, just show the royalty info
     function test_RoyaltyInfo() external {
-
         // address1 mint a nft
         bytes32[] memory proof = new bytes32[](3);
         proof[0] = 0x8138140fea4d27ef447a72f4fcbc1ebb518cca612ea0d392b695ead7f8c99ae6;
@@ -142,13 +141,12 @@ contract NFT721Test is Test {
 
         // show the nft royalty info
         (address receiver, uint256 royaltyAmount) = nftContract.royaltyInfo(0, 100 ether);
-        assertEq(receiver,owner );
-        assertEq(royaltyAmount,2.5 ether);
+        assertEq(receiver, owner);
+        assertEq(royaltyAmount, 2.5 ether);
 
         (receiver, royaltyAmount) = nftContract.royaltyInfo(0, 1 ether);
-        assertEq(receiver,owner );
-        assertEq(royaltyAmount,0.025 ether);
-
+        assertEq(receiver, owner);
+        assertEq(royaltyAmount, 0.025 ether);
     }
 
     // TODO ,BEYOND TOTOLSUPPLY

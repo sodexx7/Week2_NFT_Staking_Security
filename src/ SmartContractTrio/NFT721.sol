@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.17;
 
-import {IERC721, ERC721, ERC165, IERC165} from "@openzeppelin/contracts//token/ERC721/ERC721.sol";
+import {IERC721, ERC721} from "@openzeppelin/contracts//token/ERC721/ERC721.sol";
 import {ERC2981} from "@openzeppelin/contracts/token/common/ERC2981.sol";
 import {BitMaps} from "@openzeppelin/contracts/utils/structs/BitMaps.sol";
 import {MerkleProof} from "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
@@ -18,8 +18,7 @@ contract NFT721 is ERC721, ERC2981, Ownable2Step {
     uint8 private constant MAX_SUPPLY = 20;
     uint8 public totalSupply;
 
-    string public constant TOKEN_URI =
-        "test url";
+    string public constant TOKEN_URI = "test url";
 
     /**
      * @dev See {IERC165-supportsInterface}.

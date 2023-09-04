@@ -4,9 +4,9 @@ pragma solidity ^0.8.17;
 import "forge-std/Test.sol";
 import "forge-std/console.sol";
 
-import {StakingContract} from "src/StakingContract.sol";
-import {NFT721} from "src/NFT721.sol";
-import {RewardToken} from "src/RewardToken.sol";
+import {StakingContract} from "src/ SmartContractTrio/StakingContract.sol";
+import {NFT721} from "src/ SmartContractTrio/NFT721.sol";
+import {RewardToken} from "src/ SmartContractTrio/RewardToken.sol";
 
 contract StakingContractTest is Test {
     StakingContract stakingContract;

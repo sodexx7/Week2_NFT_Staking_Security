@@ -1,15 +1,15 @@
 
 Revisit the solidity events tutorial. How can OpenSea quickly determine which NFTs an address owns if most NFTs don’t use ERC721 enumerable? Explain how you would accomplish this if you were creating an NFT marketplace
 
-1)by the owner?? OpenSea NFT
-2) 
-
-1. How can OpenSea quickly determine which NFTs an address owns if most NFTs don’t use ERC721 enumerable?
 
 
-    OpenSea should have a database that store all the NFT address, perhaps get the info by monitoring the block or etherscan.info or other third-party services like Morails.
-Just based on the NFT smart contract address, and one owner address. Each time when one NFT mint or transfer, just listening the transfer events.
-tokenAddress is the NFT address, filterAddress is the owner address. So when the evet was triggered, then owner's NFT info can rendered.
+ ##  1. How can OpenSea quickly determine which NFTs an address owns if most NFTs don’t use ERC721 enumerable?
+
+OpenSea should have a database that stores all the NFT addresses. Perhaps it gathers all the info by monitoring the block or etherscan.info or other third-party services like Morails.
+
+It is based on the NFT smart contract addresses and one owner address. When one NFT mints or transfers. The listening event involved with the transfer events on their service will be triggered.
+
+The demo code is below: tokenAddress is the NFT address, and filterAddress is the owner address. So when the event was triggered, the owner's NFT info can be rendered.
 
 ``` solidity
 const ethers = require('ethers');
@@ -34,33 +34,20 @@ tokenContract.queryFilter(filter).then((events) => {
 ```
 
 
-Explain how you would accomplish this if you were creating an NFT marketplace
+## 2. Explain how you would accomplish this if you were creating an NFT marketplace
 
-The main features in my understanding as blew:
-1: can list all NFT info, can be search by the NFT address or the owner.
-2: should updated the related NFT info while a NFT was transferred or created.
-3. display the  details of a NFT
+The NFT marketplace's main features, in my understanding as follows:
+1. List all NFT info, which the NFT address or the owner can search.
+2. Should update the related NFT info while an NFT was transferred or created.
+3. Display the  details of an NFT
 4. Buy and sell NFT
 
-For this quesiton, I think the points is how to know the owner's latest NFT info?
-The opensea use the centralized service listen all the related NFT into, and update NFT info with the owner info.
-For this implementation, shoud maintain a centralized service listening all related NFT infos. and can use this funcoiton
-to retreat the info more 
-```
-fromBlock and toBlock query parameters are added
-```
+For this question, I think the point is how to know the owner's latest NFT info. 
 
+1. One solution is maintaining a centralized service that should store all the NFT addresses and listen to the NFT transfer event just like Opensea. Each time the listening event was triggered, the related NFT info should be updated.
 
-
-
-
-1)NFT address database
-
-2)history NFT info
-2)latest NFT info
-    main feature: query NFT info by the tokeID,owner, contract address
-
-
+2. But this solution needs more resources, such as cloud service, databases, IT operators. Some other services, and maybe some of them are decentralized services that can listen to the events so we can  
+integrate these services. Like subgraph, Moralis. However, reliability and consistency should also be considered in some circumstances. 
 
 
 

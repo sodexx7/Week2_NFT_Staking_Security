@@ -17,5 +17,7 @@ broadcast
 .DS_Store
 *.pem
 
+.env
 todo.md
+
 

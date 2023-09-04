@@ -13,7 +13,6 @@ contract NFTGameTest is Test {
     NFTCollection nFTCollection;
 
     function setUp() external {
-
         // address1 owns 20 NFTS
         nFTCollection = new NFTCollection();
         nFTGame = new NFTGame(address(nFTCollection));
@@ -23,13 +22,11 @@ contract NFTGameTest is Test {
             nFTCollection.safeMint();
         }
         vm.stopPrank();
-
     }
 
-    function test_CalculateNumsofPrimeNFT() external  {
+    function test_CalculateNumsofPrimeNFT() external {
         //  2, 3, 5, 7, 11, 13, 17 and 19.
-        assertEq(nFTGame.calculateNumsOfPrimeNFT(address1),8);
-
+        assertEq(nFTGame.calculateNumsOfPrimeNFT(address1), 8);
     }
 }
 

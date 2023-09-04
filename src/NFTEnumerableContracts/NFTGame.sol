@@ -5,9 +5,9 @@ import {NFTCollection} from "src/NFTEnumerableContracts/NFTCollection.sol";
 
 /// @title
 contract NFTGame {
-    NFTCollection private _nFTCollection ;
+    NFTCollection private _nFTCollection;
 
-    constructor(address nFTCollection){
+    constructor(address nFTCollection) {
         _nFTCollection = NFTCollection(nFTCollection);
     }
 
@@ -16,7 +16,7 @@ contract NFTGame {
         uint256 totalPrimeCounts;
         for (uint256 i = 0; i < amounts; i++) {
             uint256 tokenId = _nFTCollection.tokenOfOwnerByIndex(owner, i);
-            if(isPrime(tokenId) && tokenId != 1){
+            if (isPrime(tokenId) && tokenId != 1) {
                 ++totalPrimeCounts;
             }
         }
@@ -29,11 +29,7 @@ contract NFTGame {
         assembly {
             let halfX := add(div(x, 2), 1)
             let i := 2
-            for {
-
-            } lt(i, halfX) {
-
-            } {
+            for {} lt(i, halfX) {} {
                 if iszero(mod(x, i)) {
                     p := 0
                     break

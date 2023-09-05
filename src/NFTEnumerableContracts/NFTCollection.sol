@@ -3,9 +3,12 @@ pragma solidity 0.8.17;
 
 import {ERC721, ERC721Enumerable} from "@openzeppelin/contracts//token/ERC721/extensions/ERC721Enumerable.sol";
 
-/// @title
+/**
+ * @title  NFT collection with 20 items using ERC721Enumerable. The token ids in [1..20] inclusive.
+ * @author Tony
+ * @notice
+ */
 contract NFTCollection is ERC721, ERC721Enumerable {
-    
     uint8 private constant MAX_SUPPLY = 20;
 
     constructor() ERC721("NFTCollection", "NFTC") {}

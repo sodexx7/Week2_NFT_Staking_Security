@@ -3,7 +3,6 @@ pragma solidity 0.8.17;
 
 import {NFTCollection} from "src/NFTEnumerableContracts/NFTCollection.sol";
 
-/// @title
 contract NFTGame {
     NFTCollection private _nFTCollection;
 
@@ -11,13 +10,23 @@ contract NFTGame {
         _nFTCollection = NFTCollection(nFTCollection);
     }
 
-    function calculateNumsOfPrimeNFT(address owner) external view returns (uint256) {
+    /**
+     * @notice Calculate how many NFTs are owned by the owner which have tokenIDs that are prime numbers.
+     * @param owner  owner address
+     * TODO? 
+     * 1. the owner has huge amounts of NFT? how to deal with the loop
+     */
+    function calculateNumsOfPrimeNFT(address owner) external view returns (uint256 ) {
         uint256 amounts = _nFTCollection.balanceOf(owner);
         uint256 totalPrimeCounts;
-        for (uint256 i = 0; i < amounts; i++) {
+        uint256 i;
+        for (i; i < amounts;) {
             uint256 tokenId = _nFTCollection.tokenOfOwnerByIndex(owner, i);
             if (isPrime(tokenId) && tokenId != 1) {
                 ++totalPrimeCounts;
+            }
+            unchecked {
+                ++i;
             }
         }
         return totalPrimeCounts;

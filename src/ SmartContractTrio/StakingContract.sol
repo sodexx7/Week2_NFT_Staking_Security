@@ -11,8 +11,8 @@ import {NFT721} from "./NFT721.sol";
  * @title support ERC721 NFT to stake,and rewarding tERC20 Token
  * @author Tony
  * @notice
- * @dev User can stake an NFT under the NFT721 contract and get the corrospending RewardToken, which based on the staked period.
- * User can withdraw an NFT anytime, and can withdraw all amount of  RewardToken .
+ * @dev User can stake an NFT under the NFT721 contract and get the corrospending RewardToken, which based on the staking period.
+ * User can withdraw an NFT anytime, and can withdraw all amount of RewardToken when withdrawRewards .
  *
  * If the user withdraws an NFT, the reward calculation will stop,
  * and the unWithdrawnRewards will be recorded, which will be clear when the user withdrawRewards the next time.

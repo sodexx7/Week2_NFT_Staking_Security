@@ -30,4 +30,4 @@ contract NFTGameTest is Test {
     }
 }
 
-// Todo gas optimize
+// Todo perhaps more gas optimize

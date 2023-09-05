@@ -6,6 +6,14 @@ import "forge-std/console.sol";
 
 import {NFT721} from "src/ SmartContractTrio/NFT721.sol";
 
+/**
+ * @dev
+ * Test points
+ * 1: TotalSupply = 20
+ * 2: Show royalty info, test_RoyaltyInfo
+ * 3: Address in superlist can mint nft at a discount, and can't mint again when the same address has mint
+ * 4: Only owner can withdraw this contract's balance. testOwnerWithdrawBalance
+ */
 contract NFT721Test is Test {
     NFT721 nftContract;
 
@@ -18,6 +26,22 @@ contract NFT721Test is Test {
     function setUp() external {
         vm.prank(owner);
         nftContract = new NFT721(0x5a62e056db9887c17d8ded5d939c167f0aab07ac728c32753b86ca0ffa0b3362);
+    }
+
+    function test_RevertWhenBeyondMaxSupply() external {
+        vm.deal(address2, 100 ether);
+        vm.startPrank(address2);
+
+        uint8 counts;
+        while (counts < 20) {
+            nftContract.mintNft{value: 0.1 ether}();
+            counts++;
+        }
+
+        vm.expectRevert();
+        nftContract.mintNft{value: 0.1 ether}();
+
+        vm.stopPrank();
     }
 
     function testMintByMerkleTree() external {
@@ -44,7 +68,7 @@ contract NFT721Test is Test {
         vm.deal(address2, 0.01 ether);
 
         vm.startPrank(address2);
-        vm.expectRevert();
+        vm.expectRevert("Invalid proof");
         nftContract.mintNftByProof{value: 0.01 ether}(proof, index);
         vm.stopPrank();
     }
@@ -148,11 +172,4 @@ contract NFT721Test is Test {
         assertEq(receiver, owner);
         assertEq(royaltyAmount, 0.025 ether);
     }
-
-    // TODO ,BEYOND TOTOLSUPPLY
 }
-
-// TODO
-// 1. BITMAP , merkle tree   TEST
-// 2. add ERC1869 Test
-// 3.

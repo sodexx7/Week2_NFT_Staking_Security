@@ -28,7 +28,7 @@ contract NFT721 is ERC721, ERC2981, Ownable2Step {
 
     uint8 private constant MAX_SUPPLY = 20;
 
-    uint128 public totalSupply;
+    uint128 public _totalSupply;
 
     // for simple show, currently ignore
     string public constant TOKEN_URI = "test url";
@@ -53,7 +53,7 @@ contract NFT721 is ERC721, ERC2981, Ownable2Step {
      * while buidling the merkle tree.
      */
     function mintNftByProof(bytes32[] calldata proof, uint256 index) external payable {
-        require(totalSupply <= MAX_SUPPLY, "Beyond totalSupply");
+        require(_totalSupply < MAX_SUPPLY, "Beyond _totalSupply");
 
         // verify proof
         _verifyProof(proof, index, msg.sender);
@@ -66,8 +66,8 @@ contract NFT721 is ERC721, ERC2981, Ownable2Step {
         // set airdrop as claimed
         BitMaps.setTo(_superMintList, index, true);
 
-        totalSupply = totalSupply + 1;
-        _safeMint(msg.sender, totalSupply);
+        ++_totalSupply;
+        _safeMint(msg.sender, _totalSupply);
     }
 
     /**
@@ -75,11 +75,11 @@ contract NFT721 is ERC721, ERC2981, Ownable2Step {
      * If necessary, should prevent re-entrance ??
      */
     function mintNft() external payable {
-        require(totalSupply <= MAX_SUPPLY, "Beyond totalSupply");
+        require(_totalSupply < MAX_SUPPLY, "Beyond _totalSupply");
         require(msg.value >= 0.1 ether, "NOT Enough ETH to mint");
 
-        totalSupply = totalSupply + 1;
-        _safeMint(msg.sender, totalSupply);
+        ++_totalSupply;
+        _safeMint(msg.sender, _totalSupply);
     }
 
     function widthDrawBalance() external onlyOwner {

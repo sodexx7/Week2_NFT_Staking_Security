@@ -8,6 +8,16 @@ import {StakingContract} from "src/ SmartContractTrio/StakingContract.sol";
 import {NFT721} from "src/ SmartContractTrio/NFT721.sol";
 import {RewardToken} from "src/ SmartContractTrio/RewardToken.sol";
 
+/**
+ * @dev
+ * test points:
+ * 1: basic operation: stake NFT,withdraw NFT, withdrawReward during the staking or the nft has been withdrawed
+ * 2: stake NFT. directly transfer NFT to the stakingContract
+ * 3: User can withdraw an NFT anytime
+ * 4. Withdraw RewardToken in different circumstance, NFT is staking, NFT has been withdrawed
+ * 5. Calculation the erc20 rewards
+ * 6. ownership transfer。 transfer the ownership from  rewardToken to stakingContract
+ */
 contract StakingContractTest is Test {
     StakingContract stakingContract;
     NFT721 nftContract;
@@ -142,34 +152,3 @@ contract StakingContractTest is Test {
         vm.stopPrank();
     }
 }
-
-/**
- * todo
- * 1: onERC721Received, should check the caller
- * 2. calculation the erc20 rewards
- * 3. consider the timestampe cascade change todo
- *      1. test_withdrawERC20Token should update the ERC20 rewards
- * 4. the data structure desgin should adjust?? todo consider
- * 5. Ownable2Step and safetransfer today doing
- * 6. contract @dev explain
- * 7. rayality explain
- *
- *
- * // Smart contract trio  check list
- * // 1: three contracts.
- * //      NFT with merkle tree discount(should prepare the test data and test)
- * //      ERC20 token(simple contract, just as the rewards)
- * //      staking contract(staker:stake,withdrawNFT,withdrawRewards)
- * //              1: the data structure is OK?
- * //              2: the perspective of the staking contract? ?
- * //              3: the relationships among the NFT, ERC20, staking contract, staker
- * // 2. should add some checks
- * //          staking contract(staker:stake,withdrawNFT,withdrawRewards)
- * // 1. stake tokeID , staker address check
- * // 2. reward ERC20 check?
- * // 3.  ERC 2918 royalty correct usage? how to implement? royalty specific meaning??? doing 250, to how to distribute the value
- * // 4.  the interface quesitons?  how to use the ERC 2918, the related question ERC1556
- * // 5.  security problem: stake NFTs with safetransfer/ Ownable2Step
- * // 6. explain the data structure
- * // 7. event test
- */

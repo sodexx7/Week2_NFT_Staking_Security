@@ -7,13 +7,17 @@
 2. [Wrapped_NFT_Pattern](Wrapped_NFT_Pattern.md)
 3. [NFT_EVENT.md](NFT_EVENT.md)   
 4. [SmartContractTrio](<src/ SmartContractTrio>)
+
     4.1 [MerkleTree](script/MerkleTree)
+
 5. [NFTEnumerableContracts](src/NFTEnumerableContracts)
 6. [CTFs](src/CTFs)
+
     6.1 [Overmint1Attacker](test/CTFs.Attacker.t/Overmint1Attacker.sol)
+    
     6.2 [Overmint2Attacker](test/CTFs.Attacker.t/Overmint2Attacker.sol)
-7. ![gas_profile.png](gas_profile.png)
-8. ![forge_coverage](forge_coverage.png)
+7. [gas_profile.png](gas_profile.png)
+8. [forge_coverage](forge_coverage.png)
 
 ```
 src

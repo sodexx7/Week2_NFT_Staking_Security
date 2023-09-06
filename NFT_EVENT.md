@@ -24,7 +24,7 @@ const abi = [
 
 const tokenContract = new ethers.Contract(tokenAddress, tokenAbi, provider);
 
-// this line filters for Approvals for a particular address.
+// this line filters for Trasnfer for a particular address.
 const filter = tokenContract.filters.Transfer(filterAddress, null, null);
 
 tokenContract.queryFilter(filter).then((events) => {
@@ -46,8 +46,7 @@ For this question, I think the point is how to know the owner's latest NFT info.
 
 1. One solution is maintaining a centralized service that should store all the NFT addresses and listen to the NFT transfer event just like Opensea. Each time the listening event was triggered, the related NFT info should be updated.
 
-2. But this solution needs more resources, such as cloud service, databases, IT operators. Some other services, and maybe some of them are decentralized services that can listen to the events so we can  
-integrate these services. Like subgraph, Moralis. However, reliability and consistency should also be considered in some circumstances. 
+2. But this solution needs more resources, such as cloud service, databases, IT operators. Some other services, and maybe some of them are decentralized services that can listen to the events so we can integrate these services. Like subgraph, Moralis. However, reliability and consistency should also be considered in some circumstances. 
 
 
 

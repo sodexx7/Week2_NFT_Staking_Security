@@ -3,7 +3,7 @@
 
 
 ### Files Info
-1. [ERC777_ERC1363.md](ERC721A.md)
+1. [ERC721A.md](ERC721A.md)
 2. [Wrapped_NFT_Pattern](Wrapped_NFT_Pattern.md)
 3. [NFT_EVENT.md](NFT_EVENT.md)   
 4. [SmartContractTrio](<src/ SmartContractTrio>)
@@ -63,7 +63,6 @@ script/MerkleTree/
     https://www.rareskills.io/post/foundry-forge-coverage
     4.1 forge_coverage should add more
     4.2 Mutation Test
-    4.3 
 5. more checklist: 
     1. Static analysis with solhint, slither, and mythX
 

@@ -32,6 +32,7 @@ tokenContract.queryFilter(filter).then((events) => {
 });
 
 ```
+plus: this scenarios consideration: Transfer NFT from one address to another address many times, such as thousand times, how to deal with situations more effective。
 
 
 ## 2. Explain how you would accomplish this if you were creating an NFT marketplace

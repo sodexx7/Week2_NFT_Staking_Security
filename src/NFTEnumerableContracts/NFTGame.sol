@@ -19,11 +19,14 @@ contract NFTGame {
     function calculateNumsOfPrimeNFT(address owner) external view returns (uint256 ) {
         uint256 amounts = _nFTCollection.balanceOf(owner);
         uint256 totalPrimeCounts;
-        uint256 i;
+        // i=0 => tokenID=0 ,just ignore
+        uint256 i=1;
         for (i; i < amounts;) {
             uint256 tokenId = _nFTCollection.tokenOfOwnerByIndex(owner, i);
-            if (isPrime(tokenId) && tokenId != 1) {
-                ++totalPrimeCounts;
+            if (isPrime(tokenId)) {
+                unchecked{
+                    ++totalPrimeCounts;
+                }
             }
             unchecked {
                 ++i;

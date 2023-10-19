@@ -7,18 +7,19 @@
    5. src/SmartContractTrio/StakingContract.sol
 
 # Check results summary
-   
-    * The below False detectors, In my opinion some doesn't matter and some should depend on the situation, such as Math.mulDiv which should have consider this problem,zero-address check is not necessary in my implementation.
+- The below False detectors, In my opinion some doesn't matter and some should depend on the situation, such as Math.mulDiv which should have consider this problem,zero-address check is not necessary in my implementation.
 
-    * true positives, which I think should correct them according to the suggestions.
+- true positives, which I think should correct them according to the suggestions.
 
-    ** todo, I think its not a problem. 
+- todo, I think its not a problem.
+ 
 
 
 
 ## False positive
 
-    1.divide-before-multiply, This lib's function should be tested 
+    1.divide-before-multiply, This lib's function should be tested
+
     ```
     Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
 	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
@@ -148,7 +149,3 @@
             - The contract are imported from the correct files.
     Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#name-reused
     ```
-
-
-
-

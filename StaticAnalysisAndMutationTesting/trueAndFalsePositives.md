@@ -1,12 +1,18 @@
 # Check range, tool:slither
-   src/NFTEnumerableContracts/NFTCollection.sol
-   src/NFTEnumerableContracts/NFTGame.sol
+   1. src/NFTEnumerableContracts/NFTCollection.sol
+   2. src/NFTEnumerableContracts/NFTGame.sol
 
-   src/SmartContractTrio/NFT721.sol
-   src/SmartContractTrio/RewardToken.sol
-   src/SmartContractTrio/StakingContract.sol
+   3. src/SmartContractTrio/NFT721.sol
+   4. src/SmartContractTrio/RewardToken.sol
+   5. src/SmartContractTrio/StakingContract.sol
 
 # Check results summary
+   
+    * The below False detectors, In my opinion some doesn't matter and some should depend on the situation, such as Math.mulDiv which should have consider this problem,zero-address check is not necessary in my implementation.
+
+    * true positives, which I think should correct them according to the suggestions.
+
+    ** todo, I think its not a problem. 
 
 
 

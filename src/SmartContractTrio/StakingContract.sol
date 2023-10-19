@@ -117,7 +117,7 @@ contract StakingContract is IERC721Receiver {
      * rewards in new time.
      * 2: if the nft was not staked, directly check whether the staker has cumulative unwithdrawn awards.
      *
-     * each withdraw, should withdraw all rewards including the history rewards.
+     * each withdraw, should withdraw all rewards based on the tokenID NFT including the history rewards.
      *
      * @param tokenId staked NFT
      */
@@ -135,9 +135,8 @@ contract StakingContract is IERC721Receiver {
             _rewardToken.mint(msg.sender, rewardTokenAmount + cumuReward);
             _stakeLastBeginTime[tokenId] = block.timestamp;
             emit WithdrawRewards(msg.sender, tokenId, rewardTokenAmount + cumuReward);
-        } else {
-            // nft has been withdrawed,check the cumulative unwithdrawn awards
-            require(cumuReward > 0, "No history reward can withdraw");
+        } else { 
+            // nft has been withdrawed, only withDraw the cumuReward.
             _rewardToken.mint(msg.sender, cumuReward);
             emit WithdrawRewards(msg.sender, tokenId, cumuReward);
         }
@@ -158,7 +157,8 @@ contract StakingContract is IERC721Receiver {
      * @param tokenId staked NFT
      */
     function calculateRewards(uint256 tokenId) public view returns (uint256 rewardToken) {
-        require(_stakeLastBeginTime[tokenId] > 0, "this nft not staking");
-        return (block.timestamp - _stakeLastBeginTime[tokenId]) / 27 * REWARD_EACH_27_SECONDS;
+        return _stakeLastBeginTime[tokenId] > 0
+            ? (block.timestamp - _stakeLastBeginTime[tokenId]) / 27 * REWARD_EACH_27_SECONDS
+            : 0;
     }
 }

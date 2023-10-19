@@ -8,7 +8,7 @@ import {ERC721, ERC721Enumerable} from "@openzeppelin/contracts//token/ERC721/ex
  * @author Tony
  * @notice
  */
-contract NFTCollection is ERC721, ERC721Enumerable {
+contract NFTCollection is ERC721Enumerable {
     uint8 private constant MAX_SUPPLY = 20;
 
     constructor() ERC721("NFTCollection", "NFTC") {}
@@ -19,13 +19,13 @@ contract NFTCollection is ERC721, ERC721Enumerable {
         _safeMint(msg.sender, totalSupply() + 1);
     }
 
-    function supportsInterface(bytes4 interfaceId) public view override(ERC721, ERC721Enumerable) returns (bool) {
-        return super.supportsInterface(interfaceId);
+    function supportsInterface(bytes4 interfaceId) public view override(ERC721Enumerable) returns (bool) {
+        return super.supportsInterface(interfaceId) || interfaceId == type(ERC721Enumerable).interfaceId;
     }
 
     function _beforeTokenTransfer(address from, address to, uint256 tokenId, uint256 batchSize)
         internal
-        override(ERC721, ERC721Enumerable)
+        override(ERC721Enumerable)
     {
         super._beforeTokenTransfer(from, to, tokenId, batchSize);
     }

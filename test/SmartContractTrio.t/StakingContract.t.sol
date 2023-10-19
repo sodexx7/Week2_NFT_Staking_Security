@@ -23,6 +23,8 @@ contract StakingContractTest is Test {
     NFT721 nftContract;
     RewardToken rewardToken;
 
+    uint256 constant REWARD_EACH_27_SECONDS = 3_125_000_000_000_000;
+
     address public address1 = address(0x10);
 
     address public address2 = address(0x22);
@@ -59,6 +61,11 @@ contract StakingContractTest is Test {
         vm.stopPrank();
     }
 
+    function test_onERC721ReceivedRevert() external {
+        vm.expectRevert(bytes("illeage call"));
+        stakingContract.onERC721Received(msg.sender, address1, mintTokenId, "0x");
+    }
+
     // test only the corrospending deposit can withdraw
     //  quesiton same transaciton ???
     function test_WithdrawNFT() external {
@@ -74,8 +81,22 @@ contract StakingContractTest is Test {
         vm.stopPrank();
     }
 
+    function test_WithdrawNFTRevertNonOwner() external {
+        vm.startPrank(address1);
+
+        nftContract.safeTransferFrom(address1, address(stakingContract), mintTokenId);
+
+        assertEq(nftContract.ownerOf(mintTokenId), address(stakingContract));
+        console.log(nftContract.ownerOf(mintTokenId), address(stakingContract));
+        vm.stopPrank();
+
+        vm.prank(address2); //non orginal owner
+        vm.expectRevert(bytes("Not original owner"));
+        stakingContract.withdrawNFT(mintTokenId);
+    }
+
     // test withdraw rewards, should caclucate the rewards.
-    function test_withdrawRewardWhileStakingNFT() external {
+    function test_withdrawRewardWhileStakingNFTNoCumu() external {
         console.log("block.timestamp", block.timestamp);
         vm.startPrank(address1);
 
@@ -88,6 +109,60 @@ contract StakingContractTest is Test {
         console.log("balance", rewardToken.balanceOf(address1));
         vm.stopPrank();
         assertEq(10 * 10 ** 18, rewardToken.balanceOf(address1));
+    }
+
+    function test_withdrawRewardWithMoreStakeOperations() external {
+        console.log("block.timestamp", block.timestamp);
+        vm.startPrank(address1);
+
+        nftContract.safeTransferFrom(address1, address(stakingContract), mintTokenId);
+
+        // after 1 days
+        console.log("balance", rewardToken.balanceOf(address1));
+        vm.warp(block.timestamp + 1 days);
+        // WithDrawNFT but don't withdraw rewards
+        stakingContract.withdrawNFT(mintTokenId);
+
+        // after 2 days, stakeNFT again 
+        vm.warp(block.timestamp + 2 days);
+        nftContract.safeTransferFrom(address1, address(stakingContract), mintTokenId);
+
+
+        // after new staking, withdrawRewards again, which includes staking and Cumu rewards
+        vm.warp(block.timestamp + 1 days);
+        stakingContract.withdrawRewards(mintTokenId);
+
+        vm.stopPrank();
+        assertEq(20 * 10 ** 18, rewardToken.balanceOf(address1));
+    }
+
+    function test_withdrawRewardWhileNoStakingHasCumu() external {
+        console.log("block.timestamp", block.timestamp);
+        vm.startPrank(address1);
+
+        nftContract.safeTransferFrom(address1, address(stakingContract), mintTokenId);
+
+        // after 1 days
+        vm.warp(block.timestamp + 1 days);
+        // address1 only withDrawNFT
+        stakingContract.withdrawNFT(mintTokenId);
+        vm.stopPrank();
+
+        vm.prank(address1);
+        stakingContract.withdrawRewards(mintTokenId);
+        assertEq(10 * 10 ** 18, rewardToken.balanceOf(address1));
+
+    }
+
+    function test_withdrawRewarNoReward() external {
+        console.log("block.timestamp", block.timestamp);
+        vm.startPrank(address1);
+
+        nftContract.safeTransferFrom(address1, address(stakingContract), mintTokenId);
+        vm.expectRevert(bytes("No reward for now"));
+        stakingContract.withdrawRewards(mintTokenId);
+        vm.stopPrank();
+
     }
 
     function test_withdrawRewardsAfterWithDrawNFT() external {
@@ -132,7 +207,7 @@ contract StakingContractTest is Test {
     function test_RevertWhenNoRewardsByWrongAddress() external {
         console.log("block.timestamp", block.timestamp);
         vm.startPrank(address1);
-        vm.expectRevert();
+        vm.expectRevert(bytes("No reward can withdraw"));
         stakingContract.withdrawRewards(mintTokenId);
         vm.stopPrank();
     }
@@ -146,9 +221,32 @@ contract StakingContractTest is Test {
         stakingContract.withdrawRewards(mintTokenId);
 
         // second withdrawRewards
-        vm.expectRevert();
+        vm.expectRevert(bytes("No reward for now"));
         stakingContract.withdrawRewards(mintTokenId);
 
         vm.stopPrank();
+    }
+
+    function test_CalculateRewards() external {
+        console.log("block.timestamp", block.timestamp);
+        uint256 beforeBlockTimeStamp = block.timestamp;
+        vm.startPrank(address1);
+        nftContract.safeTransferFrom(address1, address(stakingContract), mintTokenId);
+        vm.stopPrank();
+        vm.warp(block.timestamp + 1 days);
+        uint256 rewards = stakingContract.calculateRewards(mintTokenId);
+
+        assertEq(rewards, (block.timestamp - beforeBlockTimeStamp) / 27 * REWARD_EACH_27_SECONDS);
+    }
+
+    function test_CalculateRewardsNoStaking() external {
+        uint rewards =  stakingContract.calculateRewards(mintTokenId + 1);
+        assertEq(rewards,0);
+    }
+
+    function test_rewardTokenRevertNoOwner() external {
+        vm.expectRevert(bytes("Ownable: caller is not the owner"));
+        rewardToken.mint(msg.sender, 0);
+
     }
 }

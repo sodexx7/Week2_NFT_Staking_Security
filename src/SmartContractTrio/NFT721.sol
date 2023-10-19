@@ -3,6 +3,7 @@ pragma solidity 0.8.17;
 
 import {IERC721, ERC721} from "@openzeppelin/contracts//token/ERC721/ERC721.sol";
 import {IERC2981, ERC2981} from "@openzeppelin/contracts/token/common/ERC2981.sol";
+
 import {BitMaps} from "@openzeppelin/contracts/utils/structs/BitMaps.sol";
 import {MerkleProof} from "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 
@@ -42,7 +43,7 @@ contract NFT721 is ERC721, ERC2981, Ownable2Step {
     /**
      * @dev See {IERC165-supportsInterface}.
      */
-    function supportsInterface(bytes4 interfaceId) public view virtual override(ERC2981, ERC721) returns (bool) {
+    function supportsInterface(bytes4 interfaceId) public view override(ERC721, ERC2981) returns (bool) {
         return interfaceId == type(IERC721).interfaceId || interfaceId == type(IERC2981).interfaceId
             || super.supportsInterface(interfaceId);
     }
@@ -53,7 +54,7 @@ contract NFT721 is ERC721, ERC2981, Ownable2Step {
      * while buidling the merkle tree.
      */
     function mintNftByProof(bytes32[] calldata proof, uint256 index) external payable {
-        require(_totalSupply < MAX_SUPPLY, "Beyond _totalSupply");
+        require(_totalSupply < MAX_SUPPLY, "Beyond totalSupply");
 
         // verify proof
         _verifyProof(proof, index, msg.sender);
@@ -75,7 +76,7 @@ contract NFT721 is ERC721, ERC2981, Ownable2Step {
      * If necessary, should prevent re-entrance ??
      */
     function mintNft() external payable {
-        require(_totalSupply < MAX_SUPPLY, "Beyond _totalSupply");
+        require(_totalSupply < MAX_SUPPLY, "Beyond totalSupply");
         require(msg.value >= 0.1 ether, "NOT Enough ETH to mint");
 
         ++_totalSupply;

@@ -4,7 +4,7 @@ pragma solidity 0.8.17;
 import {NFTCollection} from "src/NFTEnumerableContracts/NFTCollection.sol";
 
 contract NFTGame {
-    NFTCollection private _nFTCollection;
+    NFTCollection private immutable _nFTCollection;
 
     constructor(address nFTCollection) {
         _nFTCollection = NFTCollection(nFTCollection);
@@ -13,18 +13,18 @@ contract NFTGame {
     /**
      * @notice Calculate how many NFTs are owned by the owner which have tokenIDs that are prime numbers.
      * @param owner  owner address
-     * TODO? 
+     * TODO?
      * 1. the owner has huge amounts of NFT? how to deal with the loop
      */
-    function calculateNumsOfPrimeNFT(address owner) external view returns (uint256 ) {
+    function calculateNumsOfPrimeNFT(address owner) external view returns (uint256) {
         uint256 amounts = _nFTCollection.balanceOf(owner);
         uint256 totalPrimeCounts;
         // i=0 => tokenID=0 ,just ignore
-        uint256 i=1;
+        uint256 i = 1;
         for (i; i < amounts;) {
             uint256 tokenId = _nFTCollection.tokenOfOwnerByIndex(owner, i);
             if (isPrime(tokenId)) {
-                unchecked{
+                unchecked {
                     ++totalPrimeCounts;
                 }
             }
@@ -35,8 +35,8 @@ contract NFTGame {
         return totalPrimeCounts;
     }
 
-    // dig more ??
-    function isPrime(uint256 x) public pure returns (bool p) {
+    // dig more ?? 
+    function isPrime(uint256 x) internal pure returns (bool p) {
         p = true;
         assembly {
             let halfX := add(div(x, 2), 1)

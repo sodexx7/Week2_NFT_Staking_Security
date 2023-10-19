@@ -20,4 +20,6 @@ broadcast
 .env
 todo.md
 
-
+coverage/
+bin/
+lcov.info

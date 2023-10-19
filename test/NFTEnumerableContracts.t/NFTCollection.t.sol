@@ -47,4 +47,14 @@ contract NFTCollectionTest is Test {
         nFTCollection.safeMint();
         vm.stopPrank();
     }
+
+    function test_checkSupportsInterface() external {
+        assertEq(nFTCollection.supportsInterface(0x780e9d63), true);//ERC721Enumerable
+        assertEq(nFTCollection.supportsInterface(0x01ffc9a7), true);//IERC165
+
+    }
+
+    function test_checkSupportsInterfaceRevert() external {
+        assertEq(nFTCollection.supportsInterface(0x78ae9d63), false);
+    }
 }

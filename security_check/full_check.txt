@@ -1,0 +1,817 @@
+'forge clean' running (wd: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security)
+'forge build --build-info' running (wd: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security)
+ERROR:ContractSolcParsing:Missing inheritance NFTCollection (9ff0a1129d93e90765b0cd556ef8806e)
+Missing inheritance ID: 33927
+Inheritance found:
+	 - ERC721Enumerable (ID 27118)
+	 - ERC721 (ID 26630)
+	 - ERC165 (ID 28507)
+	 - IERC165 (ID 28519)
+	 - Context (ID 27726)
+
+ERROR:ContractSolcParsing:Missing inheritance NFT721 (9ff0a1129d93e90765b0cd556ef8806e)
+Missing inheritance ID: 33927
+Inheritance found:
+	 - Ownable2Step (ID 24994)
+	 - Ownable (ID 24911)
+	 - ERC2981 (ID 27374)
+	 - ERC721 (ID 26630)
+	 - ERC165 (ID 28507)
+	 - IERC2981 (ID 25013)
+	 - IERC165 (ID 28519)
+	 - Context (ID 27726)
+
+ERROR:ConvertToIR:Function not found safeMint
+ERROR:ContractSolcParsing:Impossible to generate IR for NFTCollectionTest.test_TokenIdRanges (test/NFTEnumerableContracts.t/NFTCollection.t.sol#22-38):
+ 'NoneType' object has no attribute 'type'
+ERROR:ConvertToIR:Function not found safeMint
+ERROR:ContractSolcParsing:Impossible to generate IR for NFTCollectionTest.test_RevertWhenBeyondTokenIdRanges (test/NFTEnumerableContracts.t/NFTCollection.t.sol#40-49):
+ 'NoneType' object has no attribute 'type'
+ERROR:ConvertToIR:Function not found safeMint
+ERROR:ContractSolcParsing:Impossible to generate IR for NFTGameTest.setUp (test/NFTEnumerableContracts.t/NFTGame.t.sol#15-25):
+ 'NoneType' object has no attribute 'type'
+ERROR:ConvertToIR:Function not found mintNft
+ERROR:ContractSolcParsing:Impossible to generate IR for NFT721Test.test_RevertWhenBeyondMaxSupply (test/SmartContractTrio.t/NFT721.t.sol#31-45):
+ 'NoneType' object has no attribute 'type'
+ERROR:ConvertToIR:Function not found mintNftByProof
+ERROR:ContractSolcParsing:Impossible to generate IR for NFT721Test.testMintByMerkleTree (test/SmartContractTrio.t/NFT721.t.sol#47-60):
+ 'NoneType' object has no attribute 'type'
+ERROR:ConvertToIR:Function not found mintNftByProof
+ERROR:ContractSolcParsing:Impossible to generate IR for NFT721Test.testMint_RevertWhenNotExistByByMerkleTree (test/SmartContractTrio.t/NFT721.t.sol#62-74):
+ 'NoneType' object has no attribute 'type'
+ERROR:ConvertToIR:Function not found mintNftByProof
+ERROR:ContractSolcParsing:Impossible to generate IR for NFT721Test.testMint_RevertWhenAlreadyMintByByMerkleTree (test/SmartContractTrio.t/NFT721.t.sol#76-93):
+ 'NoneType' object has no attribute 'type'
+ERROR:ConvertToIR:Function not found mintNftByProof
+ERROR:ContractSolcParsing:Impossible to generate IR for NFT721Test.testMint_RevertWhenFeeNotEnougFeehByByMerkleTree (test/SmartContractTrio.t/NFT721.t.sol#95-107):
+ 'NoneType' object has no attribute 'type'
+ERROR:ConvertToIR:Function not found mintNft
+ERROR:ContractSolcParsing:Impossible to generate IR for NFT721Test.testNormalMint (test/SmartContractTrio.t/NFT721.t.sol#109-117):
+ 'NoneType' object has no attribute 'type'
+ERROR:ConvertToIR:Function not found mintNft
+ERROR:ContractSolcParsing:Impossible to generate IR for NFT721Test.testNormalMintRevert_RevetWhenFeeNotEnough (test/SmartContractTrio.t/NFT721.t.sol#119-124):
+ 'NoneType' object has no attribute 'type'
+ERROR:ConvertToIR:Function not found mintNft
+ERROR:ContractSolcParsing:Impossible to generate IR for NFT721Test.testOwnerWithdrawBalance (test/SmartContractTrio.t/NFT721.t.sol#126-150):
+ 'NoneType' object has no attribute 'type'
+ERROR:ConvertToIR:Function not found mintNftByProof
+ERROR:ContractSolcParsing:Impossible to generate IR for NFT721Test.test_RoyaltyInfo (test/SmartContractTrio.t/NFT721.t.sol#154-174):
+ 'NoneType' object has no attribute 'type'
+ERROR:ConvertToIR:Function not found mintNft
+ERROR:ContractSolcParsing:Impossible to generate IR for StakingContractTest.setUp (test/SmartContractTrio.t/StakingContract.t.sol#32-49):
+ 'NoneType' object has no attribute 'type'
+INFO:Detectors:
+NFT721 (src/SmartContractTrio/NFT721.sol#23-103) inherits from a contract for which the name is reused.
+	- Slither could not determine which contract has a duplicate name:
+		-Ownable2Step (lib/openzeppelin-contracts/contracts/access/Ownable2Step.sol#19-57)
+		-Ownable (lib/openzeppelin-contracts/contracts/access/Ownable.sol#20-83)
+		-ERC2981 (lib/openzeppelin-contracts/contracts/token/common/ERC2981.sol#24-107)
+		-ERC721 (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#19-466)
+		-ERC165 (lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol#22-29)
+		-IERC2981 (lib/openzeppelin-contracts/contracts/interfaces/IERC2981.sol#16-25)
+		-IERC165 (lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol#15-25)
+		-Context (lib/openzeppelin-contracts/contracts/utils/Context.sol#16-24)
+	- Check if:
+		- A inherited contract is missing from this list,
+		- The contract are imported from the correct files.
+NFTCollection (src/NFTEnumerableContracts/NFTCollection.sol#11-32) inherits from a contract for which the name is reused.
+	- Slither could not determine which contract has a duplicate name:
+		-ERC721Enumerable (lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol#14-159)
+		-ERC721 (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#19-466)
+		-ERC165 (lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol#22-29)
+		-IERC165 (lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol#15-25)
+		-Context (lib/openzeppelin-contracts/contracts/utils/Context.sol#16-24)
+	- Check if:
+		- A inherited contract is missing from this list,
+		- The contract are imported from the correct files.
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#name-reused
+INFO:Detectors:
+StdCheats.vm (lib/forge-std/src/StdCheats.sol#432) shadows:
+	- StdCheatsSafe.vm (lib/forge-std/src/StdCheats.sol#10)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variable-shadowing
+INFO:Detectors:
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse = (3 * denominator) ^ 2 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#116)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#120)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#121)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#122)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#123)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#124)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- denominator = denominator / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#101)
+	- inverse *= 2 - denominator * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#125)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) performs a multiplication on the result of a division:
+	- prod0 = prod0 / twos (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#104)
+	- result = prod0 * inverse (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#131)
+StakingContract.calculateRewards(uint256) (src/SmartContractTrio/StakingContract.sol#160-163) performs a multiplication on the result of a division:
+	- (block.timestamp - _stakeLastBeginTime[tokenId]) / 27 * REWARD_EACH_27_SECONDS (src/SmartContractTrio/StakingContract.sol#162)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#divide-before-multiply
+INFO:Detectors:
+Reentrancy in Overmint1.mint() (src/CTFs/Overmint1.sol#15-20):
+	External calls:
+	- _safeMint(msg.sender,totalSupply) (src/CTFs/Overmint1.sol#18)
+		- retval = IERC721Receiver(to).onERC721Received(_msgSender(),from,tokenId,data) (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#406-417)
+	State variables written after the call(s):
+	- amountMinted[msg.sender] ++ (src/CTFs/Overmint1.sol#19)
+	Overmint1.amountMinted (src/CTFs/Overmint1.sol#10) can be used in cross function reentrancies:
+	- Overmint1.amountMinted (src/CTFs/Overmint1.sol#10)
+	- Overmint1.mint() (src/CTFs/Overmint1.sol#15-20)
+Reentrancy in StakingContract.withdrawRewards(uint256) (src/SmartContractTrio/StakingContract.sol#124-144):
+	External calls:
+	- _rewardToken.mint(msg.sender,rewardTokenAmount + cumuReward) (src/SmartContractTrio/StakingContract.sol#135)
+	State variables written after the call(s):
+	- _stakeLastBeginTime[tokenId] = block.timestamp (src/SmartContractTrio/StakingContract.sol#136)
+	StakingContract._stakeLastBeginTime (src/SmartContractTrio/StakingContract.sol#41) can be used in cross function reentrancies:
+	- StakingContract.calculateRewards(uint256) (src/SmartContractTrio/StakingContract.sol#160-163)
+	- StakingContract.onERC721Received(address,address,uint256,bytes) (src/SmartContractTrio/StakingContract.sol#56-81)
+	- StakingContract.withdrawNFT(uint256) (src/SmartContractTrio/StakingContract.sol#91-110)
+	- StakingContract.withdrawRewards(uint256) (src/SmartContractTrio/StakingContract.sol#124-144)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-1
+INFO:Detectors:
+StdCheatsSafe.rawToConvertedEIPTx1559(StdCheatsSafe.RawTx1559).transaction (lib/forge-std/src/StdCheats.sol#250) is a local variable never initialized
+StdCheatsSafe.rawToConvertedReceipt(StdCheatsSafe.RawReceipt).receipt (lib/forge-std/src/StdCheats.sol#318) is a local variable never initialized
+StdCheatsSafe.rawToConvertedEIP1559Detail(StdCheatsSafe.RawTx1559Detail).txDetail (lib/forge-std/src/StdCheats.sol#266) is a local variable never initialized
+StdCheatsSafe.readEIP1559ScriptArtifact(string).artifact (lib/forge-std/src/StdCheats.sol#230) is a local variable never initialized
+NFTGame.calculateNumsOfPrimeNFT(address).totalPrimeCounts (src/NFTEnumerableContracts/NFTGame.sol#21) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+INFO:Detectors:
+stdStorageSafe.find(StdStorage) (lib/forge-std/src/StdStorage.sol#32-105) ignores return value by (reads) = vm.accesses(address(who)) (lib/forge-std/src/StdStorage.sol#50)
+StdCheats.isFork() (lib/forge-std/src/StdCheats.sol#525-529) ignores return value by vm.activeFork() (lib/forge-std/src/StdCheats.sol#526-528)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-return
+INFO:Detectors:
+Ownable2Step.transferOwnership(address).newOwner (lib/openzeppelin-contracts/contracts/access/Ownable2Step.sol#35) lacks a zero-check on :
+		- _pendingOwner = newOwner (lib/openzeppelin-contracts/contracts/access/Ownable2Step.sol#36)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#missing-zero-address-validation
+INFO:Detectors:
+Modifier StdCheats.skipWhenForking() (lib/forge-std/src/StdCheats.sol#531-535) does not always execute _; or revertModifier StdCheats.skipWhenNotForking() (lib/forge-std/src/StdCheats.sol#537-541) does not always execute _; or revertReference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-modifier
+INFO:Detectors:
+NFTGame.calculateNumsOfPrimeNFT(address) (src/NFTEnumerableContracts/NFTGame.sol#19-36) has external calls inside a loop: tokenId = _nFTCollection.tokenOfOwnerByIndex(owner,i) (src/NFTEnumerableContracts/NFTGame.sol#25)
+AttackerContract2.callVictimsMint(address) (test/CTFs.Attacker.t/Overmint2Attacker.sol#51-64) has external calls inside a loop: Overmint2(victimsAddress).totalSupply() <= 5 (test/CTFs.Attacker.t/Overmint2Attacker.sol#53)
+AttackerContract2.callVictimsMint(address) (test/CTFs.Attacker.t/Overmint2Attacker.sol#51-64) has external calls inside a loop: Overmint2(victimsAddress).mint() (test/CTFs.Attacker.t/Overmint2Attacker.sol#54)
+AttackerContract2.callVictimsMint(address) (test/CTFs.Attacker.t/Overmint2Attacker.sol#51-64) has external calls inside a loop: Overmint2(victimsAddress).transferFrom(address(this),msg.sender,Overmint2(victimsAddress).totalSupply()) (test/CTFs.Attacker.t/Overmint2Attacker.sol#56)
+AttackerContract2.callVictimsMint(address) (test/CTFs.Attacker.t/Overmint2Attacker.sol#51-64) has external calls inside a loop: Overmint2(victimsAddress).transferFrom(msg.sender,address(this),maxTokenIds) (test/CTFs.Attacker.t/Overmint2Attacker.sol#61)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation/#calls-inside-a-loop
+INFO:Detectors:
+Reentrancy in DSTest.fail() (lib/forge-std/lib/ds-test/src/test.sol#65-76):
+	External calls:
+	- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	State variables written after the call(s):
+	- _failed = true (lib/forge-std/lib/ds-test/src/test.sol#75)
+Reentrancy in NFT721Test.setUp() (test/SmartContractTrio.t/NFT721.t.sol#26-29):
+	External calls:
+	- vm.prank(owner) (test/SmartContractTrio.t/NFT721.t.sol#27)
+	State variables written after the call(s):
+	- nftContract = new NFT721(0x5a62e056db9887c17d8ded5d939c167f0aab07ac728c32753b86ca0ffa0b3362) (test/SmartContractTrio.t/NFT721.t.sol#28)
+Reentrancy in NFT721Test.testMintByMerkleTree() (test/SmartContractTrio.t/NFT721.t.sol#47-60):
+	External calls:
+	- vm.deal(address1,10000000000000000) (test/SmartContractTrio.t/NFT721.t.sol#53)
+	- assertEq(nftContract.balanceOf(address1),0) (test/SmartContractTrio.t/NFT721.t.sol#55)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	State variables written after the call(s):
+	- assertEq(nftContract.balanceOf(address1),0) (test/SmartContractTrio.t/NFT721.t.sol#55)
+		- _failed = true (lib/forge-std/lib/ds-test/src/test.sol#75)
+Reentrancy in NFT721Test.testMint_RevertWhenAlreadyMintByByMerkleTree() (test/SmartContractTrio.t/NFT721.t.sol#76-93):
+	External calls:
+	- vm.deal(address1,1000000000000000000) (test/SmartContractTrio.t/NFT721.t.sol#82)
+	- assertEq(nftContract.balanceOf(address1),0) (test/SmartContractTrio.t/NFT721.t.sol#84)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	State variables written after the call(s):
+	- assertEq(nftContract.balanceOf(address1),0) (test/SmartContractTrio.t/NFT721.t.sol#84)
+		- _failed = true (lib/forge-std/lib/ds-test/src/test.sol#75)
+Reentrancy in Overmint1Attacker.test_AttackerContract() (test/CTFs.Attacker.t/Overmint1Attacker.sol#20-32):
+	External calls:
+	- vm.startPrank(attacker) (test/CTFs.Attacker.t/Overmint1Attacker.sol#25)
+	- attackerContract.callVictimsMint(address(victim)) (test/CTFs.Attacker.t/Overmint1Attacker.sol#27)
+	- vm.stopPrank() (test/CTFs.Attacker.t/Overmint1Attacker.sol#28)
+	- assertEq(victim.success(attacker),true) (test/CTFs.Attacker.t/Overmint1Attacker.sol#30)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	State variables written after the call(s):
+	- assertEq(victim.success(attacker),true) (test/CTFs.Attacker.t/Overmint1Attacker.sol#30)
+		- _failed = true (lib/forge-std/lib/ds-test/src/test.sol#75)
+Reentrancy in Overmint2Attacker.test_AttackerContract2() (test/CTFs.Attacker.t/Overmint2Attacker.sol#20-40):
+	External calls:
+	- vm.startPrank(attacker) (test/CTFs.Attacker.t/Overmint2Attacker.sol#25)
+	- victim.setApprovalForAll(address(attackerContract2),true) (test/CTFs.Attacker.t/Overmint2Attacker.sol#28)
+	- attackerContract2.callVictimsMint(address(victim)) (test/CTFs.Attacker.t/Overmint2Attacker.sol#33)
+	- vm.stopPrank() (test/CTFs.Attacker.t/Overmint2Attacker.sol#34)
+	- vm.prank(address(attackerContract2)) (test/CTFs.Attacker.t/Overmint2Attacker.sol#36)
+	- assertEq(victim.success(),true) (test/CTFs.Attacker.t/Overmint2Attacker.sol#37)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	State variables written after the call(s):
+	- assertEq(victim.success(),true) (test/CTFs.Attacker.t/Overmint2Attacker.sol#37)
+		- _failed = true (lib/forge-std/lib/ds-test/src/test.sol#75)
+Reentrancy in StakingContractTest.test_Stake() (test/SmartContractTrio.t/StakingContract.t.sol#52-60):
+	External calls:
+	- vm.startPrank(address1) (test/SmartContractTrio.t/StakingContract.t.sol#53)
+	- nftContract.safeTransferFrom(address1,address(stakingContract),mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#55)
+	- assertEq(nftContract.ownerOf(mintTokenId),address(stakingContract)) (test/SmartContractTrio.t/StakingContract.t.sol#57)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	State variables written after the call(s):
+	- assertEq(nftContract.ownerOf(mintTokenId),address(stakingContract)) (test/SmartContractTrio.t/StakingContract.t.sol#57)
+		- _failed = true (lib/forge-std/lib/ds-test/src/test.sol#75)
+Reentrancy in StakingContractTest.test_WithdrawNFT() (test/SmartContractTrio.t/StakingContract.t.sol#64-75):
+	External calls:
+	- vm.startPrank(address1) (test/SmartContractTrio.t/StakingContract.t.sol#65)
+	- nftContract.safeTransferFrom(address1,address(stakingContract),mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#67)
+	- assertEq(nftContract.ownerOf(mintTokenId),address(stakingContract)) (test/SmartContractTrio.t/StakingContract.t.sol#69)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	State variables written after the call(s):
+	- assertEq(nftContract.ownerOf(mintTokenId),address(stakingContract)) (test/SmartContractTrio.t/StakingContract.t.sol#69)
+		- _failed = true (lib/forge-std/lib/ds-test/src/test.sol#75)
+Reentrancy in StakingContractTest.test_WithdrawNFT() (test/SmartContractTrio.t/StakingContract.t.sol#64-75):
+	External calls:
+	- vm.startPrank(address1) (test/SmartContractTrio.t/StakingContract.t.sol#65)
+	- nftContract.safeTransferFrom(address1,address(stakingContract),mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#67)
+	- assertEq(nftContract.ownerOf(mintTokenId),address(stakingContract)) (test/SmartContractTrio.t/StakingContract.t.sol#69)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	- stakingContract.withdrawNFT(mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#72)
+	- assertEq(nftContract.ownerOf(mintTokenId),address1) (test/SmartContractTrio.t/StakingContract.t.sol#73)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	State variables written after the call(s):
+	- assertEq(nftContract.ownerOf(mintTokenId),address1) (test/SmartContractTrio.t/StakingContract.t.sol#73)
+		- _failed = true (lib/forge-std/lib/ds-test/src/test.sol#75)
+Reentrancy in StakingContractTest.test_withdrawRewardWhileStakingNFT() (test/SmartContractTrio.t/StakingContract.t.sol#78-91):
+	External calls:
+	- vm.startPrank(address1) (test/SmartContractTrio.t/StakingContract.t.sol#80)
+	- nftContract.safeTransferFrom(address1,address(stakingContract),mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#82)
+	- vm.warp(block.timestamp + 86400) (test/SmartContractTrio.t/StakingContract.t.sol#86)
+	- stakingContract.withdrawRewards(mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#87)
+	- vm.stopPrank() (test/SmartContractTrio.t/StakingContract.t.sol#89)
+	- assertEq(10 * 10 ** 18,rewardToken.balanceOf(address1)) (test/SmartContractTrio.t/StakingContract.t.sol#90)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	State variables written after the call(s):
+	- assertEq(10 * 10 ** 18,rewardToken.balanceOf(address1)) (test/SmartContractTrio.t/StakingContract.t.sol#90)
+		- _failed = true (lib/forge-std/lib/ds-test/src/test.sol#75)
+Reentrancy in StakingContractTest.test_withdrawRewardsAfteSecondStake() (test/SmartContractTrio.t/StakingContract.t.sol#112-130):
+	External calls:
+	- vm.startPrank(address1) (test/SmartContractTrio.t/StakingContract.t.sol#114)
+	- nftContract.safeTransferFrom(address1,address(stakingContract),mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#115)
+	- vm.warp(block.timestamp + 86400) (test/SmartContractTrio.t/StakingContract.t.sol#118)
+	- stakingContract.withdrawNFT(mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#119)
+	- vm.warp(block.timestamp + 86400) (test/SmartContractTrio.t/StakingContract.t.sol#122)
+	- nftContract.safeTransferFrom(address1,address(stakingContract),mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#123)
+	- vm.warp(block.timestamp + 43200) (test/SmartContractTrio.t/StakingContract.t.sol#125)
+	- stakingContract.withdrawRewards(mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#127)
+	- vm.stopPrank() (test/SmartContractTrio.t/StakingContract.t.sol#128)
+	- assertEq((10 + 5) * 10 ** 18,rewardToken.balanceOf(address1)) (test/SmartContractTrio.t/StakingContract.t.sol#129)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	State variables written after the call(s):
+	- assertEq((10 + 5) * 10 ** 18,rewardToken.balanceOf(address1)) (test/SmartContractTrio.t/StakingContract.t.sol#129)
+		- _failed = true (lib/forge-std/lib/ds-test/src/test.sol#75)
+Reentrancy in StakingContractTest.test_withdrawRewardsAfterWithDrawNFT() (test/SmartContractTrio.t/StakingContract.t.sol#93-109):
+	External calls:
+	- vm.startPrank(address1) (test/SmartContractTrio.t/StakingContract.t.sol#95)
+	- nftContract.safeTransferFrom(address1,address(stakingContract),mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#97)
+	- vm.warp(block.timestamp + 86400) (test/SmartContractTrio.t/StakingContract.t.sol#98)
+	- stakingContract.withdrawNFT(mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#101)
+	- stakingContract.withdrawRewards(mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#105)
+	- vm.stopPrank() (test/SmartContractTrio.t/StakingContract.t.sol#107)
+	- assertEq(10 * 10 ** 18,rewardToken.balanceOf(address1)) (test/SmartContractTrio.t/StakingContract.t.sol#108)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	State variables written after the call(s):
+	- assertEq(10 * 10 ** 18,rewardToken.balanceOf(address1)) (test/SmartContractTrio.t/StakingContract.t.sol#108)
+		- _failed = true (lib/forge-std/lib/ds-test/src/test.sol#75)
+Reentrancy in StakingContract.withdrawNFT(uint256) (src/SmartContractTrio/StakingContract.sol#91-110):
+	External calls:
+	- _nft1.safeTransferFrom(address(this),msg.sender,tokenId) (src/SmartContractTrio/StakingContract.sol#96)
+	State variables written after the call(s):
+	- delete _stakeLastBeginTime[tokenId] (src/SmartContractTrio/StakingContract.sol#103)
+	- _unWithdrawnRewardsEachNFT[msg.sender][tokenId] = unwithdrawnCumuRewards (src/SmartContractTrio/StakingContract.sol#107)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-2
+INFO:Detectors:
+Reentrancy in stdStorageSafe.find(StdStorage) (lib/forge-std/src/StdStorage.sol#32-105):
+	External calls:
+	- vm.record() (lib/forge-std/src/StdStorage.sol#43)
+	- (reads) = vm.accesses(address(who)) (lib/forge-std/src/StdStorage.sol#50)
+	Event emitted after the call(s):
+	- SlotFound(who,fsig,keccak256(bytes)(abi.encodePacked(ins,field_depth)),uint256(reads[0])) (lib/forge-std/src/StdStorage.sol#62)
+	- WARNING_UninitedSlot(who,uint256(reads[0])) (lib/forge-std/src/StdStorage.sol#54)
+Reentrancy in stdStorageSafe.find(StdStorage) (lib/forge-std/src/StdStorage.sol#32-105):
+	External calls:
+	- vm.record() (lib/forge-std/src/StdStorage.sol#43)
+	- (reads) = vm.accesses(address(who)) (lib/forge-std/src/StdStorage.sol#50)
+	- vm.store(who,reads[i],bytes32(7)) (lib/forge-std/src/StdStorage.sol#72)
+	- vm.store(who,reads[i],prev) (lib/forge-std/src/StdStorage.sol#88)
+	Event emitted after the call(s):
+	- SlotFound(who,fsig,keccak256(bytes)(abi.encodePacked(ins,field_depth)),uint256(reads[i])) (lib/forge-std/src/StdStorage.sol#82)
+	- WARNING_UninitedSlot(who,uint256(reads[i])) (lib/forge-std/src/StdStorage.sol#69)
+Reentrancy in NFT721Test.testMintByMerkleTree() (test/SmartContractTrio.t/NFT721.t.sol#47-60):
+	External calls:
+	- vm.deal(address1,10000000000000000) (test/SmartContractTrio.t/NFT721.t.sol#53)
+	- assertEq(nftContract.balanceOf(address1),0) (test/SmartContractTrio.t/NFT721.t.sol#55)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	Event emitted after the call(s):
+	- log(Error: a == b not satisfied [uint]) (lib/forge-std/lib/ds-test/src/test.sol#159)
+		- assertEq(nftContract.balanceOf(address1),0) (test/SmartContractTrio.t/NFT721.t.sol#55)
+	- log_named_uint(  Expected,b) (lib/forge-std/lib/ds-test/src/test.sol#160)
+		- assertEq(nftContract.balanceOf(address1),0) (test/SmartContractTrio.t/NFT721.t.sol#55)
+	- log_named_uint(    Actual,a) (lib/forge-std/lib/ds-test/src/test.sol#161)
+		- assertEq(nftContract.balanceOf(address1),0) (test/SmartContractTrio.t/NFT721.t.sol#55)
+Reentrancy in NFT721Test.testMint_RevertWhenAlreadyMintByByMerkleTree() (test/SmartContractTrio.t/NFT721.t.sol#76-93):
+	External calls:
+	- vm.deal(address1,1000000000000000000) (test/SmartContractTrio.t/NFT721.t.sol#82)
+	- assertEq(nftContract.balanceOf(address1),0) (test/SmartContractTrio.t/NFT721.t.sol#84)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	Event emitted after the call(s):
+	- log(Error: a == b not satisfied [uint]) (lib/forge-std/lib/ds-test/src/test.sol#159)
+		- assertEq(nftContract.balanceOf(address1),0) (test/SmartContractTrio.t/NFT721.t.sol#84)
+	- log_named_uint(  Expected,b) (lib/forge-std/lib/ds-test/src/test.sol#160)
+		- assertEq(nftContract.balanceOf(address1),0) (test/SmartContractTrio.t/NFT721.t.sol#84)
+	- log_named_uint(    Actual,a) (lib/forge-std/lib/ds-test/src/test.sol#161)
+		- assertEq(nftContract.balanceOf(address1),0) (test/SmartContractTrio.t/NFT721.t.sol#84)
+Reentrancy in Overmint1Attacker.test_AttackerContract() (test/CTFs.Attacker.t/Overmint1Attacker.sol#20-32):
+	External calls:
+	- vm.startPrank(attacker) (test/CTFs.Attacker.t/Overmint1Attacker.sol#25)
+	- attackerContract.callVictimsMint(address(victim)) (test/CTFs.Attacker.t/Overmint1Attacker.sol#27)
+	- vm.stopPrank() (test/CTFs.Attacker.t/Overmint1Attacker.sol#28)
+	- assertEq(victim.success(attacker),true) (test/CTFs.Attacker.t/Overmint1Attacker.sol#30)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	Event emitted after the call(s):
+	- log(Error: a == b not satisfied [bool]) (lib/forge-std/src/StdAssertions.sol#30)
+		- assertEq(victim.success(attacker),true) (test/CTFs.Attacker.t/Overmint1Attacker.sol#30)
+	- log_named_string(  Expected,true) (lib/forge-std/src/StdAssertions.sol#31)
+		- assertEq(victim.success(attacker),true) (test/CTFs.Attacker.t/Overmint1Attacker.sol#30)
+	- log_named_string(  Expected,false) (lib/forge-std/src/StdAssertions.sol#31)
+		- assertEq(victim.success(attacker),true) (test/CTFs.Attacker.t/Overmint1Attacker.sol#30)
+	- log_named_string(    Actual,true) (lib/forge-std/src/StdAssertions.sol#32)
+		- assertEq(victim.success(attacker),true) (test/CTFs.Attacker.t/Overmint1Attacker.sol#30)
+	- log_named_string(    Actual,false) (lib/forge-std/src/StdAssertions.sol#32)
+		- assertEq(victim.success(attacker),true) (test/CTFs.Attacker.t/Overmint1Attacker.sol#30)
+Reentrancy in Overmint2Attacker.test_AttackerContract2() (test/CTFs.Attacker.t/Overmint2Attacker.sol#20-40):
+	External calls:
+	- vm.startPrank(attacker) (test/CTFs.Attacker.t/Overmint2Attacker.sol#25)
+	- victim.setApprovalForAll(address(attackerContract2),true) (test/CTFs.Attacker.t/Overmint2Attacker.sol#28)
+	- attackerContract2.callVictimsMint(address(victim)) (test/CTFs.Attacker.t/Overmint2Attacker.sol#33)
+	- vm.stopPrank() (test/CTFs.Attacker.t/Overmint2Attacker.sol#34)
+	- vm.prank(address(attackerContract2)) (test/CTFs.Attacker.t/Overmint2Attacker.sol#36)
+	- assertEq(victim.success(),true) (test/CTFs.Attacker.t/Overmint2Attacker.sol#37)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	Event emitted after the call(s):
+	- log(Error: a == b not satisfied [bool]) (lib/forge-std/src/StdAssertions.sol#30)
+		- assertEq(victim.success(),true) (test/CTFs.Attacker.t/Overmint2Attacker.sol#37)
+	- log_named_string(  Expected,true) (lib/forge-std/src/StdAssertions.sol#31)
+		- assertEq(victim.success(),true) (test/CTFs.Attacker.t/Overmint2Attacker.sol#37)
+	- log_named_string(  Expected,false) (lib/forge-std/src/StdAssertions.sol#31)
+		- assertEq(victim.success(),true) (test/CTFs.Attacker.t/Overmint2Attacker.sol#37)
+	- log_named_string(    Actual,true) (lib/forge-std/src/StdAssertions.sol#32)
+		- assertEq(victim.success(),true) (test/CTFs.Attacker.t/Overmint2Attacker.sol#37)
+	- log_named_string(    Actual,false) (lib/forge-std/src/StdAssertions.sol#32)
+		- assertEq(victim.success(),true) (test/CTFs.Attacker.t/Overmint2Attacker.sol#37)
+Reentrancy in StakingContractTest.test_Stake() (test/SmartContractTrio.t/StakingContract.t.sol#52-60):
+	External calls:
+	- vm.startPrank(address1) (test/SmartContractTrio.t/StakingContract.t.sol#53)
+	- nftContract.safeTransferFrom(address1,address(stakingContract),mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#55)
+	- assertEq(nftContract.ownerOf(mintTokenId),address(stakingContract)) (test/SmartContractTrio.t/StakingContract.t.sol#57)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	Event emitted after the call(s):
+	- log(Error: a == b not satisfied [address]) (lib/forge-std/lib/ds-test/src/test.sol#109)
+		- assertEq(nftContract.ownerOf(mintTokenId),address(stakingContract)) (test/SmartContractTrio.t/StakingContract.t.sol#57)
+	- log_named_address(  Expected,b) (lib/forge-std/lib/ds-test/src/test.sol#110)
+		- assertEq(nftContract.ownerOf(mintTokenId),address(stakingContract)) (test/SmartContractTrio.t/StakingContract.t.sol#57)
+	- log_named_address(    Actual,a) (lib/forge-std/lib/ds-test/src/test.sol#111)
+		- assertEq(nftContract.ownerOf(mintTokenId),address(stakingContract)) (test/SmartContractTrio.t/StakingContract.t.sol#57)
+Reentrancy in StakingContractTest.test_WithdrawNFT() (test/SmartContractTrio.t/StakingContract.t.sol#64-75):
+	External calls:
+	- vm.startPrank(address1) (test/SmartContractTrio.t/StakingContract.t.sol#65)
+	- nftContract.safeTransferFrom(address1,address(stakingContract),mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#67)
+	- assertEq(nftContract.ownerOf(mintTokenId),address(stakingContract)) (test/SmartContractTrio.t/StakingContract.t.sol#69)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	Event emitted after the call(s):
+	- log(Error: a == b not satisfied [address]) (lib/forge-std/lib/ds-test/src/test.sol#109)
+		- assertEq(nftContract.ownerOf(mintTokenId),address(stakingContract)) (test/SmartContractTrio.t/StakingContract.t.sol#69)
+	- log_named_address(  Expected,b) (lib/forge-std/lib/ds-test/src/test.sol#110)
+		- assertEq(nftContract.ownerOf(mintTokenId),address(stakingContract)) (test/SmartContractTrio.t/StakingContract.t.sol#69)
+	- log_named_address(    Actual,a) (lib/forge-std/lib/ds-test/src/test.sol#111)
+		- assertEq(nftContract.ownerOf(mintTokenId),address(stakingContract)) (test/SmartContractTrio.t/StakingContract.t.sol#69)
+Reentrancy in StakingContractTest.test_WithdrawNFT() (test/SmartContractTrio.t/StakingContract.t.sol#64-75):
+	External calls:
+	- vm.startPrank(address1) (test/SmartContractTrio.t/StakingContract.t.sol#65)
+	- nftContract.safeTransferFrom(address1,address(stakingContract),mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#67)
+	- assertEq(nftContract.ownerOf(mintTokenId),address(stakingContract)) (test/SmartContractTrio.t/StakingContract.t.sol#69)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	- stakingContract.withdrawNFT(mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#72)
+	- assertEq(nftContract.ownerOf(mintTokenId),address1) (test/SmartContractTrio.t/StakingContract.t.sol#73)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	Event emitted after the call(s):
+	- log(Error: a == b not satisfied [address]) (lib/forge-std/lib/ds-test/src/test.sol#109)
+		- assertEq(nftContract.ownerOf(mintTokenId),address1) (test/SmartContractTrio.t/StakingContract.t.sol#73)
+	- log_named_address(  Expected,b) (lib/forge-std/lib/ds-test/src/test.sol#110)
+		- assertEq(nftContract.ownerOf(mintTokenId),address1) (test/SmartContractTrio.t/StakingContract.t.sol#73)
+	- log_named_address(    Actual,a) (lib/forge-std/lib/ds-test/src/test.sol#111)
+		- assertEq(nftContract.ownerOf(mintTokenId),address1) (test/SmartContractTrio.t/StakingContract.t.sol#73)
+Reentrancy in StakingContractTest.test_withdrawRewardWhileStakingNFT() (test/SmartContractTrio.t/StakingContract.t.sol#78-91):
+	External calls:
+	- vm.startPrank(address1) (test/SmartContractTrio.t/StakingContract.t.sol#80)
+	- nftContract.safeTransferFrom(address1,address(stakingContract),mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#82)
+	- vm.warp(block.timestamp + 86400) (test/SmartContractTrio.t/StakingContract.t.sol#86)
+	- stakingContract.withdrawRewards(mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#87)
+	- vm.stopPrank() (test/SmartContractTrio.t/StakingContract.t.sol#89)
+	- assertEq(10 * 10 ** 18,rewardToken.balanceOf(address1)) (test/SmartContractTrio.t/StakingContract.t.sol#90)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	Event emitted after the call(s):
+	- log(Error: a == b not satisfied [uint]) (lib/forge-std/lib/ds-test/src/test.sol#159)
+		- assertEq(10 * 10 ** 18,rewardToken.balanceOf(address1)) (test/SmartContractTrio.t/StakingContract.t.sol#90)
+	- log_named_uint(  Expected,b) (lib/forge-std/lib/ds-test/src/test.sol#160)
+		- assertEq(10 * 10 ** 18,rewardToken.balanceOf(address1)) (test/SmartContractTrio.t/StakingContract.t.sol#90)
+	- log_named_uint(    Actual,a) (lib/forge-std/lib/ds-test/src/test.sol#161)
+		- assertEq(10 * 10 ** 18,rewardToken.balanceOf(address1)) (test/SmartContractTrio.t/StakingContract.t.sol#90)
+Reentrancy in StakingContractTest.test_withdrawRewardsAfteSecondStake() (test/SmartContractTrio.t/StakingContract.t.sol#112-130):
+	External calls:
+	- vm.startPrank(address1) (test/SmartContractTrio.t/StakingContract.t.sol#114)
+	- nftContract.safeTransferFrom(address1,address(stakingContract),mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#115)
+	- vm.warp(block.timestamp + 86400) (test/SmartContractTrio.t/StakingContract.t.sol#118)
+	- stakingContract.withdrawNFT(mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#119)
+	- vm.warp(block.timestamp + 86400) (test/SmartContractTrio.t/StakingContract.t.sol#122)
+	- nftContract.safeTransferFrom(address1,address(stakingContract),mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#123)
+	- vm.warp(block.timestamp + 43200) (test/SmartContractTrio.t/StakingContract.t.sol#125)
+	- stakingContract.withdrawRewards(mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#127)
+	- vm.stopPrank() (test/SmartContractTrio.t/StakingContract.t.sol#128)
+	- assertEq((10 + 5) * 10 ** 18,rewardToken.balanceOf(address1)) (test/SmartContractTrio.t/StakingContract.t.sol#129)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	Event emitted after the call(s):
+	- log(Error: a == b not satisfied [uint]) (lib/forge-std/lib/ds-test/src/test.sol#159)
+		- assertEq((10 + 5) * 10 ** 18,rewardToken.balanceOf(address1)) (test/SmartContractTrio.t/StakingContract.t.sol#129)
+	- log_named_uint(  Expected,b) (lib/forge-std/lib/ds-test/src/test.sol#160)
+		- assertEq((10 + 5) * 10 ** 18,rewardToken.balanceOf(address1)) (test/SmartContractTrio.t/StakingContract.t.sol#129)
+	- log_named_uint(    Actual,a) (lib/forge-std/lib/ds-test/src/test.sol#161)
+		- assertEq((10 + 5) * 10 ** 18,rewardToken.balanceOf(address1)) (test/SmartContractTrio.t/StakingContract.t.sol#129)
+Reentrancy in StakingContractTest.test_withdrawRewardsAfterWithDrawNFT() (test/SmartContractTrio.t/StakingContract.t.sol#93-109):
+	External calls:
+	- vm.startPrank(address1) (test/SmartContractTrio.t/StakingContract.t.sol#95)
+	- nftContract.safeTransferFrom(address1,address(stakingContract),mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#97)
+	- vm.warp(block.timestamp + 86400) (test/SmartContractTrio.t/StakingContract.t.sol#98)
+	- stakingContract.withdrawNFT(mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#101)
+	- stakingContract.withdrawRewards(mintTokenId) (test/SmartContractTrio.t/StakingContract.t.sol#105)
+	- vm.stopPrank() (test/SmartContractTrio.t/StakingContract.t.sol#107)
+	- assertEq(10 * 10 ** 18,rewardToken.balanceOf(address1)) (test/SmartContractTrio.t/StakingContract.t.sol#108)
+		- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+	Event emitted after the call(s):
+	- log(Error: a == b not satisfied [uint]) (lib/forge-std/lib/ds-test/src/test.sol#159)
+		- assertEq(10 * 10 ** 18,rewardToken.balanceOf(address1)) (test/SmartContractTrio.t/StakingContract.t.sol#108)
+	- log_named_uint(  Expected,b) (lib/forge-std/lib/ds-test/src/test.sol#160)
+		- assertEq(10 * 10 ** 18,rewardToken.balanceOf(address1)) (test/SmartContractTrio.t/StakingContract.t.sol#108)
+	- log_named_uint(    Actual,a) (lib/forge-std/lib/ds-test/src/test.sol#161)
+		- assertEq(10 * 10 ** 18,rewardToken.balanceOf(address1)) (test/SmartContractTrio.t/StakingContract.t.sol#108)
+Reentrancy in StakingContract.withdrawNFT(uint256) (src/SmartContractTrio/StakingContract.sol#91-110):
+	External calls:
+	- _nft1.safeTransferFrom(address(this),msg.sender,tokenId) (src/SmartContractTrio/StakingContract.sol#96)
+	Event emitted after the call(s):
+	- UpdateUnwithdrawnRewards(msg.sender,tokenId,unwithdrawnCumuRewards) (src/SmartContractTrio/StakingContract.sol#108)
+	- WithdrawNFT(msg.sender,tokenId) (src/SmartContractTrio/StakingContract.sol#98)
+Reentrancy in StakingContract.withdrawRewards(uint256) (src/SmartContractTrio/StakingContract.sol#124-144):
+	External calls:
+	- _rewardToken.mint(msg.sender,rewardTokenAmount + cumuReward) (src/SmartContractTrio/StakingContract.sol#135)
+	Event emitted after the call(s):
+	- WithdrawRewards(msg.sender,tokenId,rewardTokenAmount + cumuReward) (src/SmartContractTrio/StakingContract.sol#137)
+Reentrancy in StakingContract.withdrawRewards(uint256) (src/SmartContractTrio/StakingContract.sol#124-144):
+	External calls:
+	- _rewardToken.mint(msg.sender,cumuReward) (src/SmartContractTrio/StakingContract.sol#141)
+	Event emitted after the call(s):
+	- WithdrawRewards(msg.sender,tokenId,cumuReward) (src/SmartContractTrio/StakingContract.sol#142)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+INFO:Detectors:
+StakingContract.withdrawNFT(uint256) (src/SmartContractTrio/StakingContract.sol#91-110) uses timestamp for comparisons
+	Dangerous comparisons:
+	- rewardTokenAmount > 0 (src/SmartContractTrio/StakingContract.sol#105)
+StakingContract.withdrawRewards(uint256) (src/SmartContractTrio/StakingContract.sol#124-144) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(rewardTokenAmount + cumuReward > 0,No reward for now) (src/SmartContractTrio/StakingContract.sol#134)
+StakingContract.calculateRewards(uint256) (src/SmartContractTrio/StakingContract.sol#160-163) uses timestamp for comparisons
+	Dangerous comparisons:
+	- require(bool,string)(_stakeLastBeginTime[tokenId] > 0,this nft not staking) (src/SmartContractTrio/StakingContract.sol#161)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+INFO:Detectors:
+DSTest.hasHEVMContext() (lib/forge-std/lib/ds-test/src/test.sol#78-84) uses assembly
+	- INLINE ASM (lib/forge-std/lib/ds-test/src/test.sol#80-82)
+StdCheatsSafe.assumeNoPrecompiles(address) (lib/forge-std/src/StdCheats.sol#189-196) uses assembly
+	- INLINE ASM (lib/forge-std/src/StdCheats.sol#192-194)
+StdCheatsSafe.deployCode(string,bytes) (lib/forge-std/src/StdCheats.sol#359-367) uses assembly
+	- INLINE ASM (lib/forge-std/src/StdCheats.sol#362-364)
+StdCheatsSafe.deployCode(string) (lib/forge-std/src/StdCheats.sol#369-377) uses assembly
+	- INLINE ASM (lib/forge-std/src/StdCheats.sol#372-374)
+StdCheatsSafe.deployCode(string,bytes,uint256) (lib/forge-std/src/StdCheats.sol#380-388) uses assembly
+	- INLINE ASM (lib/forge-std/src/StdCheats.sol#383-385)
+StdCheatsSafe.deployCode(string,uint256) (lib/forge-std/src/StdCheats.sol#390-398) uses assembly
+	- INLINE ASM (lib/forge-std/src/StdCheats.sol#393-395)
+stdStorageSafe.flatten(bytes32[]) (lib/forge-std/src/StdStorage.sol#181-192) uses assembly
+	- INLINE ASM (lib/forge-std/src/StdStorage.sol#186-188)
+stdStorage.checked_write(StdStorage,bool) (lib/forge-std/src/StdStorage.sol#242-249) uses assembly
+	- INLINE ASM (lib/forge-std/src/StdStorage.sol#245-247)
+stdStorage.flatten(bytes32[]) (lib/forge-std/src/StdStorage.sol#315-326) uses assembly
+	- INLINE ASM (lib/forge-std/src/StdStorage.sol#320-322)
+console._sendLogPayload(bytes) (lib/forge-std/src/console.sol#7-15) uses assembly
+	- INLINE ASM (lib/forge-std/src/console.sol#11-14)
+console2._sendLogPayload(bytes) (lib/forge-std/src/console2.sol#12-20) uses assembly
+	- INLINE ASM (lib/forge-std/src/console2.sol#16-19)
+ERC721._checkOnERC721Received(address,address,uint256,bytes) (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#399-421) uses assembly
+	- INLINE ASM (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#413-415)
+Address._revert(bytes,string) (lib/openzeppelin-contracts/contracts/utils/Address.sol#231-243) uses assembly
+	- INLINE ASM (lib/openzeppelin-contracts/contracts/utils/Address.sol#236-239)
+Strings.toString(uint256) (lib/openzeppelin-contracts/contracts/utils/Strings.sol#19-39) uses assembly
+	- INLINE ASM (lib/openzeppelin-contracts/contracts/utils/Strings.sol#25-27)
+	- INLINE ASM (lib/openzeppelin-contracts/contracts/utils/Strings.sol#31-33)
+MerkleProof._efficientHash(bytes32,bytes32) (lib/openzeppelin-contracts/contracts/utils/cryptography/MerkleProof.sol#219-226) uses assembly
+	- INLINE ASM (lib/openzeppelin-contracts/contracts/utils/cryptography/MerkleProof.sol#221-225)
+Math.mulDiv(uint256,uint256,uint256) (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#55-134) uses assembly
+	- INLINE ASM (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#62-66)
+	- INLINE ASM (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#85-92)
+	- INLINE ASM (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#99-108)
+NFTGame.isPrime(uint256) (src/NFTEnumerableContracts/NFTGame.sol#39-53) uses assembly
+	- INLINE ASM (src/NFTEnumerableContracts/NFTGame.sol#41-52)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#assembly-usage
+INFO:Detectors:
+Different versions of Solidity are used:
+	- Version used: ['0.8.17', '>=0.4.22<0.9.0', '>=0.5.0', '>=0.6.0<0.9.0', '>=0.6.2<0.9.0', '^0.8.0', '^0.8.1', '^0.8.17']
+	- 0.8.17 (src/CTFs/Overmint1.sol#2)
+	- 0.8.17 (src/CTFs/Overmint2.sol#2)
+	- 0.8.17 (src/NFTEnumerableContracts/NFTCollection.sol#2)
+	- 0.8.17 (src/NFTEnumerableContracts/NFTGame.sol#2)
+	- 0.8.17 (src/SmartContractTrio/NFT721.sol#2)
+	- 0.8.17 (src/SmartContractTrio/RewardToken.sol#2)
+	- 0.8.17 (src/SmartContractTrio/StakingContract.sol#2)
+	- 0.8.17 (test/CTFs.Attacker.t/Overmint1Attacker.sol#2)
+	- 0.8.17 (test/CTFs.Attacker.t/Overmint2Attacker.sol#2)
+	- 0.8.17 (test/NFTEnumerableContracts.t/NFTCollection.t.sol#2)
+	- 0.8.17 (test/NFTEnumerableContracts.t/NFTGame.t.sol#2)
+	- 0.8.17 (test/SmartContractTrio.t/NFT721.t.sol#2)
+	- >=0.4.22<0.9.0 (lib/forge-std/src/console.sol#2)
+	- >=0.4.22<0.9.0 (lib/forge-std/src/console2.sol#2)
+	- >=0.5.0 (lib/forge-std/lib/ds-test/src/test.sol#16)
+	- >=0.6.0<0.9.0 (lib/forge-std/src/StdJson.sol#2)
+	- >=0.6.2<0.9.0 (lib/forge-std/src/Common.sol#2)
+	- >=0.6.2<0.9.0 (lib/forge-std/src/Components.sol#2)
+	- >=0.6.2<0.9.0 (lib/forge-std/src/StdAssertions.sol#2)
+	- >=0.6.2<0.9.0 (lib/forge-std/src/StdChains.sol#2)
+	- >=0.6.2<0.9.0 (lib/forge-std/src/StdCheats.sol#2)
+	- >=0.6.2<0.9.0 (lib/forge-std/src/StdError.sol#3)
+	- >=0.6.2<0.9.0 (lib/forge-std/src/StdMath.sol#2)
+	- >=0.6.2<0.9.0 (lib/forge-std/src/StdStorage.sol#2)
+	- >=0.6.2<0.9.0 (lib/forge-std/src/StdUtils.sol#2)
+	- >=0.6.2<0.9.0 (lib/forge-std/src/Test.sol#2)
+	- >=0.6.2<0.9.0 (lib/forge-std/src/Vm.sol#2)
+	- ABIEncoderV2 (lib/forge-std/src/StdChains.sol#4)
+	- ABIEncoderV2 (lib/forge-std/src/StdCheats.sol#4)
+	- ABIEncoderV2 (lib/forge-std/src/StdJson.sol#4)
+	- ABIEncoderV2 (lib/forge-std/src/Vm.sol#4)
+	- ^0.8.0 (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#4)
+	- ^0.8.0 (lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol#4)
+	- ^0.8.0 (lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol#4)
+	- ^0.8.0 (lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol#4)
+	- ^0.8.0 (lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Enumerable.sol#4)
+	- ^0.8.0 (lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol#4)
+	- ^0.8.0 (lib/openzeppelin-contracts/contracts/access/Ownable.sol#4)
+	- ^0.8.0 (lib/openzeppelin-contracts/contracts/access/Ownable2Step.sol#4)
+	- ^0.8.0 (lib/openzeppelin-contracts/contracts/interfaces/IERC2981.sol#4)
+	- ^0.8.0 (lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol#4)
+	- ^0.8.0 (lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol#4)
+	- ^0.8.0 (lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol#4)
+	- ^0.8.0 (lib/openzeppelin-contracts/contracts/token/common/ERC2981.sol#4)
+	- ^0.8.0 (lib/openzeppelin-contracts/contracts/utils/Context.sol#4)
+	- ^0.8.0 (lib/openzeppelin-contracts/contracts/utils/Strings.sol#4)
+	- ^0.8.0 (lib/openzeppelin-contracts/contracts/utils/cryptography/MerkleProof.sol#4)
+	- ^0.8.0 (lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol#4)
+	- ^0.8.0 (lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol#4)
+	- ^0.8.0 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#4)
+	- ^0.8.0 (lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol#4)
+	- ^0.8.0 (lib/openzeppelin-contracts/contracts/utils/structs/BitMaps.sol#3)
+	- ^0.8.1 (lib/openzeppelin-contracts/contracts/utils/Address.sol#4)
+	- ^0.8.17 (test/SmartContractTrio.t/StakingContract.t.sol#2)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#different-pragma-directives-are-used
+INFO:Detectors:
+Pragma version>=0.5.0 (lib/forge-std/lib/ds-test/src/test.sol#16) allows old versions
+Pragma version>=0.6.2<0.9.0 (lib/forge-std/src/Common.sol#2) is too complex
+Pragma version>=0.6.2<0.9.0 (lib/forge-std/src/Components.sol#2) is too complex
+Pragma version>=0.6.2<0.9.0 (lib/forge-std/src/StdAssertions.sol#2) is too complex
+Pragma version>=0.6.2<0.9.0 (lib/forge-std/src/StdChains.sol#2) is too complex
+Pragma version>=0.6.2<0.9.0 (lib/forge-std/src/StdCheats.sol#2) is too complex
+Pragma version>=0.6.2<0.9.0 (lib/forge-std/src/StdError.sol#3) is too complex
+Pragma version>=0.6.0<0.9.0 (lib/forge-std/src/StdJson.sol#2) is too complex
+Pragma version>=0.6.2<0.9.0 (lib/forge-std/src/StdMath.sol#2) is too complex
+Pragma version>=0.6.2<0.9.0 (lib/forge-std/src/StdStorage.sol#2) is too complex
+Pragma version>=0.6.2<0.9.0 (lib/forge-std/src/StdUtils.sol#2) is too complex
+Pragma version>=0.6.2<0.9.0 (lib/forge-std/src/Test.sol#2) is too complex
+Pragma version>=0.6.2<0.9.0 (lib/forge-std/src/Vm.sol#2) is too complex
+Pragma version>=0.4.22<0.9.0 (lib/forge-std/src/console.sol#2) is too complex
+Pragma version>=0.4.22<0.9.0 (lib/forge-std/src/console2.sol#2) is too complex
+Pragma version^0.8.0 (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#4) allows old versions
+Pragma version^0.8.0 (lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol#4) allows old versions
+Pragma version^0.8.0 (lib/openzeppelin-contracts/contracts/token/ERC721/IERC721Receiver.sol#4) allows old versions
+Pragma version^0.8.0 (lib/openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721Enumerable.sol#4) allows old versions
+Pragma version^0.8.0 (lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Enumerable.sol#4) allows old versions
+Pragma version^0.8.0 (lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol#4) allows old versions
+Pragma version^0.8.0 (lib/openzeppelin-contracts/contracts/access/Ownable.sol#4) allows old versions
+Pragma version^0.8.0 (lib/openzeppelin-contracts/contracts/access/Ownable2Step.sol#4) allows old versions
+Pragma version^0.8.0 (lib/openzeppelin-contracts/contracts/interfaces/IERC2981.sol#4) allows old versions
+Pragma version^0.8.0 (lib/openzeppelin-contracts/contracts/token/ERC20/ERC20.sol#4) allows old versions
+Pragma version^0.8.0 (lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol#4) allows old versions
+Pragma version^0.8.0 (lib/openzeppelin-contracts/contracts/token/ERC20/extensions/IERC20Metadata.sol#4) allows old versions
+Pragma version^0.8.0 (lib/openzeppelin-contracts/contracts/token/common/ERC2981.sol#4) allows old versions
+Pragma version^0.8.1 (lib/openzeppelin-contracts/contracts/utils/Address.sol#4) allows old versions
+Pragma version^0.8.0 (lib/openzeppelin-contracts/contracts/utils/Context.sol#4) allows old versions
+Pragma version^0.8.0 (lib/openzeppelin-contracts/contracts/utils/Strings.sol#4) allows old versions
+Pragma version^0.8.0 (lib/openzeppelin-contracts/contracts/utils/cryptography/MerkleProof.sol#4) allows old versions
+Pragma version^0.8.0 (lib/openzeppelin-contracts/contracts/utils/introspection/ERC165.sol#4) allows old versions
+Pragma version^0.8.0 (lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol#4) allows old versions
+Pragma version^0.8.0 (lib/openzeppelin-contracts/contracts/utils/math/Math.sol#4) allows old versions
+Pragma version^0.8.0 (lib/openzeppelin-contracts/contracts/utils/math/SignedMath.sol#4) allows old versions
+Pragma version^0.8.0 (lib/openzeppelin-contracts/contracts/utils/structs/BitMaps.sol#3) allows old versions
+Pragma version0.8.17 (src/CTFs/Overmint1.sol#2) allows old versions
+Pragma version0.8.17 (src/CTFs/Overmint2.sol#2) allows old versions
+Pragma version0.8.17 (src/NFTEnumerableContracts/NFTCollection.sol#2) allows old versions
+Pragma version0.8.17 (src/NFTEnumerableContracts/NFTGame.sol#2) allows old versions
+Pragma version0.8.17 (src/SmartContractTrio/NFT721.sol#2) allows old versions
+Pragma version0.8.17 (src/SmartContractTrio/RewardToken.sol#2) allows old versions
+Pragma version0.8.17 (src/SmartContractTrio/StakingContract.sol#2) allows old versions
+Pragma version0.8.17 (test/CTFs.Attacker.t/Overmint1Attacker.sol#2) allows old versions
+Pragma version0.8.17 (test/CTFs.Attacker.t/Overmint2Attacker.sol#2) allows old versions
+Pragma version0.8.17 (test/NFTEnumerableContracts.t/NFTCollection.t.sol#2) allows old versions
+Pragma version0.8.17 (test/NFTEnumerableContracts.t/NFTGame.t.sol#2) allows old versions
+Pragma version0.8.17 (test/SmartContractTrio.t/NFT721.t.sol#2) allows old versions
+Pragma version^0.8.17 (test/SmartContractTrio.t/StakingContract.t.sol#2) allows old versions
+solc-0.8.17 is not recommended for deployment
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#incorrect-versions-of-solidity
+INFO:Detectors:
+Low level call in DSTest.failed() (lib/forge-std/lib/ds-test/src/test.sol#47-63):
+	- (retdata) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(load(address,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed)))) (lib/forge-std/lib/ds-test/src/test.sol#53-58)
+Low level call in DSTest.fail() (lib/forge-std/lib/ds-test/src/test.sol#65-76):
+	- (status) = HEVM_ADDRESS.call(abi.encodePacked(bytes4(keccak256(bytes)(store(address,bytes32,bytes32))),abi.encode(HEVM_ADDRESS,bytes32(failed),bytes32(uint256(0x01))))) (lib/forge-std/lib/ds-test/src/test.sol#67-72)
+Low level call in StdCheats.deal(address,address,uint256,bool) (lib/forge-std/src/StdCheats.sol#504-523):
+	- (balData) = token.call(abi.encodeWithSelector(0x70a08231,to)) (lib/forge-std/src/StdCheats.sol#506)
+	- (totSupData) = token.call(abi.encodeWithSelector(0x18160ddd)) (lib/forge-std/src/StdCheats.sol#514)
+Low level call in stdStorageSafe.find(StdStorage) (lib/forge-std/src/StdStorage.sol#32-105):
+	- (rdat) = who.staticcall(cald) (lib/forge-std/src/StdStorage.sol#46)
+	- (success,rdat_scope_0) = who.staticcall(cald) (lib/forge-std/src/StdStorage.sol#76)
+Low level call in stdStorage.checked_write(StdStorage,bytes32) (lib/forge-std/src/StdStorage.sol#251-281):
+	- (rdat) = who.staticcall(cald) (lib/forge-std/src/StdStorage.sol#265)
+Low level call in Address.sendValue(address,uint256) (lib/openzeppelin-contracts/contracts/utils/Address.sol#64-69):
+	- (success) = recipient.call{value: amount}() (lib/openzeppelin-contracts/contracts/utils/Address.sol#67)
+Low level call in Address.functionCallWithValue(address,bytes,uint256,string) (lib/openzeppelin-contracts/contracts/utils/Address.sol#128-137):
+	- (success,returndata) = target.call{value: value}(data) (lib/openzeppelin-contracts/contracts/utils/Address.sol#135)
+Low level call in Address.functionStaticCall(address,bytes,string) (lib/openzeppelin-contracts/contracts/utils/Address.sol#155-162):
+	- (success,returndata) = target.staticcall(data) (lib/openzeppelin-contracts/contracts/utils/Address.sol#160)
+Low level call in Address.functionDelegateCall(address,bytes,string) (lib/openzeppelin-contracts/contracts/utils/Address.sol#180-187):
+	- (success,returndata) = target.delegatecall(data) (lib/openzeppelin-contracts/contracts/utils/Address.sol#185)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#low-level-calls
+INFO:Detectors:
+Event DSTest.log(string) (lib/forge-std/lib/ds-test/src/test.sol#19) is not in CapWords
+Event DSTest.logs(bytes) (lib/forge-std/lib/ds-test/src/test.sol#20) is not in CapWords
+Event DSTest.log_address(address) (lib/forge-std/lib/ds-test/src/test.sol#22) is not in CapWords
+Event DSTest.log_bytes32(bytes32) (lib/forge-std/lib/ds-test/src/test.sol#23) is not in CapWords
+Event DSTest.log_int(int256) (lib/forge-std/lib/ds-test/src/test.sol#24) is not in CapWords
+Event DSTest.log_uint(uint256) (lib/forge-std/lib/ds-test/src/test.sol#25) is not in CapWords
+Event DSTest.log_bytes(bytes) (lib/forge-std/lib/ds-test/src/test.sol#26) is not in CapWords
+Event DSTest.log_string(string) (lib/forge-std/lib/ds-test/src/test.sol#27) is not in CapWords
+Event DSTest.log_named_address(string,address) (lib/forge-std/lib/ds-test/src/test.sol#29) is not in CapWords
+Event DSTest.log_named_bytes32(string,bytes32) (lib/forge-std/lib/ds-test/src/test.sol#30) is not in CapWords
+Event DSTest.log_named_decimal_int(string,int256,uint256) (lib/forge-std/lib/ds-test/src/test.sol#31) is not in CapWords
+Event DSTest.log_named_decimal_uint(string,uint256,uint256) (lib/forge-std/lib/ds-test/src/test.sol#32) is not in CapWords
+Event DSTest.log_named_int(string,int256) (lib/forge-std/lib/ds-test/src/test.sol#33) is not in CapWords
+Event DSTest.log_named_uint(string,uint256) (lib/forge-std/lib/ds-test/src/test.sol#34) is not in CapWords
+Event DSTest.log_named_bytes(string,bytes) (lib/forge-std/lib/ds-test/src/test.sol#35) is not in CapWords
+Event DSTest.log_named_string(string,string) (lib/forge-std/lib/ds-test/src/test.sol#36) is not in CapWords
+Variable DSTest.IS_TEST (lib/forge-std/lib/ds-test/src/test.sol#38) is not in mixedCase
+Modifier DSTest.logs_gas() (lib/forge-std/lib/ds-test/src/test.sol#86-91) is not in mixedCase
+Constant CommonBase.vm (lib/forge-std/src/Common.sol#25) is not in UPPER_CASE_WITH_UNDERSCORES
+Event StdAssertions.log_array(uint256[]) (lib/forge-std/src/StdAssertions.sol#8) is not in CapWords
+Event StdAssertions.log_array(int256[]) (lib/forge-std/src/StdAssertions.sol#9) is not in CapWords
+Event StdAssertions.log_array(address[]) (lib/forge-std/src/StdAssertions.sol#10) is not in CapWords
+Event StdAssertions.log_named_array(string,uint256[]) (lib/forge-std/src/StdAssertions.sol#11) is not in CapWords
+Event StdAssertions.log_named_array(string,int256[]) (lib/forge-std/src/StdAssertions.sol#12) is not in CapWords
+Event StdAssertions.log_named_array(string,address[]) (lib/forge-std/src/StdAssertions.sol#13) is not in CapWords
+Constant StdChains.vm (lib/forge-std/src/StdChains.sol#9) is not in UPPER_CASE_WITH_UNDERSCORES
+Constant StdCheatsSafe.vm (lib/forge-std/src/StdCheats.sol#10) is not in UPPER_CASE_WITH_UNDERSCORES
+Constant StdCheats.vm (lib/forge-std/src/StdCheats.sol#432) is not in UPPER_CASE_WITH_UNDERSCORES
+Contract stdError (lib/forge-std/src/StdError.sol#5-15) is not in CapWords
+Contract stdJson (lib/forge-std/src/StdJson.sol#29-179) is not in CapWords
+Constant stdJson.vm (lib/forge-std/src/StdJson.sol#30) is not in UPPER_CASE_WITH_UNDERSCORES
+Contract stdMath (lib/forge-std/src/StdMath.sol#4-43) is not in CapWords
+Contract stdStorageSafe (lib/forge-std/src/StdStorage.sol#16-193) is not in CapWords
+Event stdStorageSafe.WARNING_UninitedSlot(address,uint256) (lib/forge-std/src/StdStorage.sol#18) is not in CapWords
+Parameter stdStorageSafe.target(StdStorage,address)._target (lib/forge-std/src/StdStorage.sol#107) is not in mixedCase
+Parameter stdStorageSafe.sig(StdStorage,bytes4)._sig (lib/forge-std/src/StdStorage.sol#112) is not in mixedCase
+Parameter stdStorageSafe.sig(StdStorage,string)._sig (lib/forge-std/src/StdStorage.sol#117) is not in mixedCase
+Function stdStorageSafe.with_key(StdStorage,address) (lib/forge-std/src/StdStorage.sol#122-125) is not in mixedCase
+Function stdStorageSafe.with_key(StdStorage,uint256) (lib/forge-std/src/StdStorage.sol#127-130) is not in mixedCase
+Function stdStorageSafe.with_key(StdStorage,bytes32) (lib/forge-std/src/StdStorage.sol#132-135) is not in mixedCase
+Parameter stdStorageSafe.depth(StdStorage,uint256)._depth (lib/forge-std/src/StdStorage.sol#137) is not in mixedCase
+Function stdStorageSafe.read_bytes32(StdStorage) (lib/forge-std/src/StdStorage.sol#148-150) is not in mixedCase
+Function stdStorageSafe.read_bool(StdStorage) (lib/forge-std/src/StdStorage.sol#152-157) is not in mixedCase
+Function stdStorageSafe.read_address(StdStorage) (lib/forge-std/src/StdStorage.sol#159-161) is not in mixedCase
+Function stdStorageSafe.read_uint(StdStorage) (lib/forge-std/src/StdStorage.sol#163-165) is not in mixedCase
+Function stdStorageSafe.read_int(StdStorage) (lib/forge-std/src/StdStorage.sol#167-169) is not in mixedCase
+Constant stdStorageSafe.vm (lib/forge-std/src/StdStorage.sol#20) is not in UPPER_CASE_WITH_UNDERSCORES
+Contract stdStorage (lib/forge-std/src/StdStorage.sol#195-327) is not in CapWords
+Parameter stdStorage.target(StdStorage,address)._target (lib/forge-std/src/StdStorage.sol#206) is not in mixedCase
+Parameter stdStorage.sig(StdStorage,bytes4)._sig (lib/forge-std/src/StdStorage.sol#210) is not in mixedCase
+Parameter stdStorage.sig(StdStorage,string)._sig (lib/forge-std/src/StdStorage.sol#214) is not in mixedCase
+Function stdStorage.with_key(StdStorage,address) (lib/forge-std/src/StdStorage.sol#218-220) is not in mixedCase
+Function stdStorage.with_key(StdStorage,uint256) (lib/forge-std/src/StdStorage.sol#222-224) is not in mixedCase
+Function stdStorage.with_key(StdStorage,bytes32) (lib/forge-std/src/StdStorage.sol#226-228) is not in mixedCase
+Parameter stdStorage.depth(StdStorage,uint256)._depth (lib/forge-std/src/StdStorage.sol#230) is not in mixedCase
+Function stdStorage.checked_write(StdStorage,address) (lib/forge-std/src/StdStorage.sol#234-236) is not in mixedCase
+Function stdStorage.checked_write(StdStorage,uint256) (lib/forge-std/src/StdStorage.sol#238-240) is not in mixedCase
+Function stdStorage.checked_write(StdStorage,bool) (lib/forge-std/src/StdStorage.sol#242-249) is not in mixedCase
+Function stdStorage.checked_write(StdStorage,bytes32) (lib/forge-std/src/StdStorage.sol#251-281) is not in mixedCase
+Function stdStorage.read_bytes32(StdStorage) (lib/forge-std/src/StdStorage.sol#283-285) is not in mixedCase
+Function stdStorage.read_bool(StdStorage) (lib/forge-std/src/StdStorage.sol#287-289) is not in mixedCase
+Function stdStorage.read_address(StdStorage) (lib/forge-std/src/StdStorage.sol#291-293) is not in mixedCase
+Function stdStorage.read_uint(StdStorage) (lib/forge-std/src/StdStorage.sol#295-297) is not in mixedCase
+Function stdStorage.read_int(StdStorage) (lib/forge-std/src/StdStorage.sol#299-301) is not in mixedCase
+Constant stdStorage.vm (lib/forge-std/src/StdStorage.sol#196) is not in UPPER_CASE_WITH_UNDERSCORES
+Contract console (lib/forge-std/src/console.sol#4-1534) is not in CapWords
+Contract console2 (lib/forge-std/src/console2.sol#9-1539) is not in CapWords
+Function ERC721.__unsafe_increaseBalance(address,uint256) (lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol#463-465) is not in mixedCase
+Parameter Overmint1.success(address)._attacker (src/CTFs/Overmint1.sol#22) is not in mixedCase
+Variable StakingContract._nft1 (src/SmartContractTrio/StakingContract.sol#23) is not in mixedCase
+Variable StakingContract._rewardToken (src/SmartContractTrio/StakingContract.sol#26) is not in mixedCase
+Function Overmint1Attacker.test_AttackerContract() (test/CTFs.Attacker.t/Overmint1Attacker.sol#20-32) is not in mixedCase
+Function Overmint2Attacker.test_AttackerContract2() (test/CTFs.Attacker.t/Overmint2Attacker.sol#20-40) is not in mixedCase
+Function NFTCollectionTest.test_TokenIdRanges() (test/NFTEnumerableContracts.t/NFTCollection.t.sol#22-38) is not in mixedCase
+Function NFTCollectionTest.test_RevertWhenBeyondTokenIdRanges() (test/NFTEnumerableContracts.t/NFTCollection.t.sol#40-49) is not in mixedCase
+Function NFTGameTest.test_CalculateNumsofPrimeNFT() (test/NFTEnumerableContracts.t/NFTGame.t.sol#27-30) is not in mixedCase
+Function NFT721Test.test_RevertWhenBeyondMaxSupply() (test/SmartContractTrio.t/NFT721.t.sol#31-45) is not in mixedCase
+Function NFT721Test.testMint_RevertWhenNotExistByByMerkleTree() (test/SmartContractTrio.t/NFT721.t.sol#62-74) is not in mixedCase
+Function NFT721Test.testMint_RevertWhenAlreadyMintByByMerkleTree() (test/SmartContractTrio.t/NFT721.t.sol#76-93) is not in mixedCase
+Function NFT721Test.testMint_RevertWhenFeeNotEnougFeehByByMerkleTree() (test/SmartContractTrio.t/NFT721.t.sol#95-107) is not in mixedCase
+Function NFT721Test.testNormalMintRevert_RevetWhenFeeNotEnough() (test/SmartContractTrio.t/NFT721.t.sol#119-124) is not in mixedCase
+Function NFT721Test.test_RoyaltyInfo() (test/SmartContractTrio.t/NFT721.t.sol#154-174) is not in mixedCase
+Function StakingContractTest.test_Stake() (test/SmartContractTrio.t/StakingContract.t.sol#52-60) is not in mixedCase
+Function StakingContractTest.test_WithdrawNFT() (test/SmartContractTrio.t/StakingContract.t.sol#64-75) is not in mixedCase
+Function StakingContractTest.test_withdrawRewardWhileStakingNFT() (test/SmartContractTrio.t/StakingContract.t.sol#78-91) is not in mixedCase
+Function StakingContractTest.test_withdrawRewardsAfterWithDrawNFT() (test/SmartContractTrio.t/StakingContract.t.sol#93-109) is not in mixedCase
+Function StakingContractTest.test_withdrawRewardsAfteSecondStake() (test/SmartContractTrio.t/StakingContract.t.sol#112-130) is not in mixedCase
+Function StakingContractTest.test_RevertWhenNoRewardsByWrongAddress() (test/SmartContractTrio.t/StakingContract.t.sol#132-138) is not in mixedCase
+Function StakingContractTest.test_RevertWhenNoRewardsAfterWithdraw() (test/SmartContractTrio.t/StakingContract.t.sol#140-153) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+INFO:Detectors:
+Redundant expression "status (lib/forge-std/lib/ds-test/src/test.sol#73)" inDSTest (lib/forge-std/lib/ds-test/src/test.sol#18-469)
+Redundant expression "i (src/NFTEnumerableContracts/NFTGame.sol#24)" inNFTGame (src/NFTEnumerableContracts/NFTGame.sol#6-54)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#redundant-statements
+INFO:Detectors:
+CommonBase.CONSOLE (lib/forge-std/src/Common.sol#11) is never used in Overmint1Attacker (test/CTFs.Attacker.t/Overmint1Attacker.sol#9-33)
+CommonBase.DEFAULT_SENDER (lib/forge-std/src/Common.sol#14) is never used in Overmint1Attacker (test/CTFs.Attacker.t/Overmint1Attacker.sol#9-33)
+CommonBase.DEFAULT_TEST_CONTRACT (lib/forge-std/src/Common.sol#17) is never used in Overmint1Attacker (test/CTFs.Attacker.t/Overmint1Attacker.sol#9-33)
+CommonBase.CREATE2_FACTORY (lib/forge-std/src/Common.sol#20) is never used in Overmint1Attacker (test/CTFs.Attacker.t/Overmint1Attacker.sol#9-33)
+CommonBase.UINT256_MAX (lib/forge-std/src/Common.sol#22-23) is never used in Overmint1Attacker (test/CTFs.Attacker.t/Overmint1Attacker.sol#9-33)
+CommonBase.stdstore (lib/forge-std/src/Common.sol#27) is never used in Overmint1Attacker (test/CTFs.Attacker.t/Overmint1Attacker.sol#9-33)
+CommonBase.CONSOLE (lib/forge-std/src/Common.sol#11) is never used in Overmint2Attacker (test/CTFs.Attacker.t/Overmint2Attacker.sol#9-41)
+CommonBase.DEFAULT_SENDER (lib/forge-std/src/Common.sol#14) is never used in Overmint2Attacker (test/CTFs.Attacker.t/Overmint2Attacker.sol#9-41)
+CommonBase.DEFAULT_TEST_CONTRACT (lib/forge-std/src/Common.sol#17) is never used in Overmint2Attacker (test/CTFs.Attacker.t/Overmint2Attacker.sol#9-41)
+CommonBase.CREATE2_FACTORY (lib/forge-std/src/Common.sol#20) is never used in Overmint2Attacker (test/CTFs.Attacker.t/Overmint2Attacker.sol#9-41)
+CommonBase.UINT256_MAX (lib/forge-std/src/Common.sol#22-23) is never used in Overmint2Attacker (test/CTFs.Attacker.t/Overmint2Attacker.sol#9-41)
+CommonBase.stdstore (lib/forge-std/src/Common.sol#27) is never used in Overmint2Attacker (test/CTFs.Attacker.t/Overmint2Attacker.sol#9-41)
+CommonBase.CONSOLE (lib/forge-std/src/Common.sol#11) is never used in NFTCollectionTest (test/NFTEnumerableContracts.t/NFTCollection.t.sol#9-50)
+CommonBase.DEFAULT_SENDER (lib/forge-std/src/Common.sol#14) is never used in NFTCollectionTest (test/NFTEnumerableContracts.t/NFTCollection.t.sol#9-50)
+CommonBase.DEFAULT_TEST_CONTRACT (lib/forge-std/src/Common.sol#17) is never used in NFTCollectionTest (test/NFTEnumerableContracts.t/NFTCollection.t.sol#9-50)
+CommonBase.CREATE2_FACTORY (lib/forge-std/src/Common.sol#20) is never used in NFTCollectionTest (test/NFTEnumerableContracts.t/NFTCollection.t.sol#9-50)
+CommonBase.UINT256_MAX (lib/forge-std/src/Common.sol#22-23) is never used in NFTCollectionTest (test/NFTEnumerableContracts.t/NFTCollection.t.sol#9-50)
+CommonBase.stdstore (lib/forge-std/src/Common.sol#27) is never used in NFTCollectionTest (test/NFTEnumerableContracts.t/NFTCollection.t.sol#9-50)
+CommonBase.CONSOLE (lib/forge-std/src/Common.sol#11) is never used in NFTGameTest (test/NFTEnumerableContracts.t/NFTGame.t.sol#10-31)
+CommonBase.DEFAULT_SENDER (lib/forge-std/src/Common.sol#14) is never used in NFTGameTest (test/NFTEnumerableContracts.t/NFTGame.t.sol#10-31)
+CommonBase.DEFAULT_TEST_CONTRACT (lib/forge-std/src/Common.sol#17) is never used in NFTGameTest (test/NFTEnumerableContracts.t/NFTGame.t.sol#10-31)
+CommonBase.CREATE2_FACTORY (lib/forge-std/src/Common.sol#20) is never used in NFTGameTest (test/NFTEnumerableContracts.t/NFTGame.t.sol#10-31)
+CommonBase.UINT256_MAX (lib/forge-std/src/Common.sol#22-23) is never used in NFTGameTest (test/NFTEnumerableContracts.t/NFTGame.t.sol#10-31)
+CommonBase.stdstore (lib/forge-std/src/Common.sol#27) is never used in NFTGameTest (test/NFTEnumerableContracts.t/NFTGame.t.sol#10-31)
+CommonBase.CONSOLE (lib/forge-std/src/Common.sol#11) is never used in NFT721Test (test/SmartContractTrio.t/NFT721.t.sol#17-175)
+CommonBase.DEFAULT_SENDER (lib/forge-std/src/Common.sol#14) is never used in NFT721Test (test/SmartContractTrio.t/NFT721.t.sol#17-175)
+CommonBase.DEFAULT_TEST_CONTRACT (lib/forge-std/src/Common.sol#17) is never used in NFT721Test (test/SmartContractTrio.t/NFT721.t.sol#17-175)
+CommonBase.CREATE2_FACTORY (lib/forge-std/src/Common.sol#20) is never used in NFT721Test (test/SmartContractTrio.t/NFT721.t.sol#17-175)
+CommonBase.UINT256_MAX (lib/forge-std/src/Common.sol#22-23) is never used in NFT721Test (test/SmartContractTrio.t/NFT721.t.sol#17-175)
+CommonBase.stdstore (lib/forge-std/src/Common.sol#27) is never used in NFT721Test (test/SmartContractTrio.t/NFT721.t.sol#17-175)
+CommonBase.CONSOLE (lib/forge-std/src/Common.sol#11) is never used in StakingContractTest (test/SmartContractTrio.t/StakingContract.t.sol#21-154)
+CommonBase.DEFAULT_SENDER (lib/forge-std/src/Common.sol#14) is never used in StakingContractTest (test/SmartContractTrio.t/StakingContract.t.sol#21-154)
+CommonBase.DEFAULT_TEST_CONTRACT (lib/forge-std/src/Common.sol#17) is never used in StakingContractTest (test/SmartContractTrio.t/StakingContract.t.sol#21-154)
+CommonBase.CREATE2_FACTORY (lib/forge-std/src/Common.sol#20) is never used in StakingContractTest (test/SmartContractTrio.t/StakingContract.t.sol#21-154)
+CommonBase.UINT256_MAX (lib/forge-std/src/Common.sol#22-23) is never used in StakingContractTest (test/SmartContractTrio.t/StakingContract.t.sol#21-154)
+CommonBase.stdstore (lib/forge-std/src/Common.sol#27) is never used in StakingContractTest (test/SmartContractTrio.t/StakingContract.t.sol#21-154)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unused-state-variable
+INFO:Detectors:
+DSTest.IS_TEST (lib/forge-std/lib/ds-test/src/test.sol#38) should be constant
+NFT721Test.address1 (test/SmartContractTrio.t/NFT721.t.sol#20) should be constant
+NFT721Test.address2 (test/SmartContractTrio.t/NFT721.t.sol#22) should be constant
+NFT721Test.owner (test/SmartContractTrio.t/NFT721.t.sol#24) should be constant
+NFTCollectionTest.address1 (test/NFTEnumerableContracts.t/NFTCollection.t.sol#12) should be constant
+NFTCollectionTest.address2 (test/NFTEnumerableContracts.t/NFTCollection.t.sol#14) should be constant
+NFTCollectionTest.owner (test/NFTEnumerableContracts.t/NFTCollection.t.sol#16) should be constant
+NFTGameTest.address1 (test/NFTEnumerableContracts.t/NFTGame.t.sol#11) should be constant
+Overmint1Attacker.attacker (test/CTFs.Attacker.t/Overmint1Attacker.sol#13) should be constant
+Overmint2Attacker.attacker (test/CTFs.Attacker.t/Overmint2Attacker.sol#13) should be constant
+StakingContractTest.address1 (test/SmartContractTrio.t/StakingContract.t.sol#26) should be constant
+StakingContractTest.address2 (test/SmartContractTrio.t/StakingContract.t.sol#28) should be constant
+StakingContractTest.mintTokenId (test/SmartContractTrio.t/StakingContract.t.sol#30) should be constant
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+INFO:Detectors:
+NFTGame._nFTCollection (src/NFTEnumerableContracts/NFTGame.sol#7) should be immutable
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-immutable
+INFO:Slither:. analyzed (55 contracts with 88 detectors), 279 result(s) found

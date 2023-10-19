@@ -1,0 +1,599 @@
+Mutation testing report:
+Number of mutations:    54
+Killed:                 25 / 54
+
+Mutations:
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/RewardToken.sol
+    Line nr: 17
+    Result: Error
+    Original line:
+             constructor() ERC20("RewardToken", "RT") {}
+
+    Mutated line:
+             constructor()  {}
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/RewardToken.sol
+    Line nr: 19
+    Result: Killed
+    Original line:
+             function mint(address account, uint256 amount) external onlyOwner {
+
+    Mutated line:
+             function mint(address account, uint256 amount) external  {
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/NFTEnumerableContracts/NFTGame.sol
+    Line nr: 23
+    Result: Killed
+    Original line:
+                 for (i; i < amounts;) {
+
+    Mutated line:
+                 for (i; i <= amounts;) {
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/NFTEnumerableContracts/NFTGame.sol
+    Line nr: 23
+    Result: Killed
+    Original line:
+                 for (i; i < amounts;) {
+
+    Mutated line:
+                 for (i; i >= amounts;) {
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 71
+    Result: Error
+    Original line:
+                 require(msg.sender == address(_nft1), "illeage call");
+
+    Mutated line:
+                 require(msg.sender = != dress(_nft1), "illeage call");
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 91
+    Result: Error
+    Original line:
+                 require(_originalOwner[tokenId] == msg.sender, "Not original owner");
+
+    Mutated line:
+                 require(_originalOwner[tokenId] = != g.sender, "Not original owner");
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 104
+    Result: Error
+    Original line:
+                 if (rewardTokenAmount > 0) {
+
+    Mutated line:
+                 if (rewardTokenAmount > >=  {
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 126
+    Result: Error
+    Original line:
+                 require(_originalOwner[tokenId] == msg.sender || cumuReward > 0, "No reward can withdraw");
+
+    Mutated line:
+                 require(_originalOwner[tokenId] = != g.sender || cumuReward > 0, "No reward can withdraw");
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 126
+    Result: Error
+    Original line:
+                 require(_originalOwner[tokenId] == msg.sender || cumuReward > 0, "No reward can withdraw");
+
+    Mutated line:
+                 require(_originalOwner[tokenId] == msg.sender || cumuReward > >=  "No reward can withdraw");
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 131
+    Result: Error
+    Original line:
+                 if (_originalOwner[tokenId] == msg.sender) {
+
+    Mutated line:
+                 if (_originalOwner[tokenId] = != g.sender) {
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 133
+    Result: Error
+    Original line:
+                     require(rewardTokenAmount + cumuReward > 0, "No reward for now");
+
+    Mutated line:
+                     require(rewardTokenAmount + cumuReward > >=  "No reward for now");
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 159
+    Result: Error
+    Original line:
+                 return _stakeLastBeginTime[tokenId] > 0
+
+    Mutated line:
+                 return _stakeLastBeginTime[tokenId] > >=             ? (block.timestamp - _stakeLastBeginTime[tokenId]) / 27 * REWARD_EACH_27_SECONDS
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 71
+    Result: Error
+    Original line:
+                 require(msg.sender == address(_nft1), "illeage call");
+
+    Mutated line:
+                 require(msg.sender = != dress(_nft1), "illeage call");
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 91
+    Result: Error
+    Original line:
+                 require(_originalOwner[tokenId] == msg.sender, "Not original owner");
+
+    Mutated line:
+                 require(_originalOwner[tokenId] = != g.sender, "Not original owner");
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 104
+    Result: Error
+    Original line:
+                 if (rewardTokenAmount > 0) {
+
+    Mutated line:
+                 if (rewardTokenAmount > <=  {
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 126
+    Result: Error
+    Original line:
+                 require(_originalOwner[tokenId] == msg.sender || cumuReward > 0, "No reward can withdraw");
+
+    Mutated line:
+                 require(_originalOwner[tokenId] = != g.sender || cumuReward > 0, "No reward can withdraw");
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 126
+    Result: Error
+    Original line:
+                 require(_originalOwner[tokenId] == msg.sender || cumuReward > 0, "No reward can withdraw");
+
+    Mutated line:
+                 require(_originalOwner[tokenId] == msg.sender || cumuReward > <=  "No reward can withdraw");
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 131
+    Result: Error
+    Original line:
+                 if (_originalOwner[tokenId] == msg.sender) {
+
+    Mutated line:
+                 if (_originalOwner[tokenId] = != g.sender) {
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 133
+    Result: Error
+    Original line:
+                     require(rewardTokenAmount + cumuReward > 0, "No reward for now");
+
+    Mutated line:
+                     require(rewardTokenAmount + cumuReward > <=  "No reward for now");
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 159
+    Result: Error
+    Original line:
+                 return _stakeLastBeginTime[tokenId] > 0
+
+    Mutated line:
+                 return _stakeLastBeginTime[tokenId] > <=             ? (block.timestamp - _stakeLastBeginTime[tokenId]) / 27 * REWARD_EACH_27_SECONDS
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 105
+    Result: Error
+    Original line:
+                     uint256 unwithdrawnCumuRewards = _unWithdrawnRewardsEachNFT[msg.sender][tokenId] + rewardTokenAmount;
+
+    Mutated line:
+                     uint256 unwithdrawnCumuRewards = _unWithdrawnRewardsEachNFT[msg.sender][tokenId] + - wardTokenAmount;
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 133
+    Result: Error
+    Original line:
+                     require(rewardTokenAmount + cumuReward > 0, "No reward for now");
+
+    Mutated line:
+                     require(rewardTokenAmount + - muReward > 0, "No reward for now");
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 134
+    Result: Error
+    Original line:
+                     _rewardToken.mint(msg.sender, rewardTokenAmount + cumuReward);
+
+    Mutated line:
+                     _rewardToken.mint(msg.sender, rewardTokenAmount + - muReward);
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 136
+    Result: Error
+    Original line:
+                     emit WithdrawRewards(msg.sender, tokenId, rewardTokenAmount + cumuReward);
+
+    Mutated line:
+                     emit WithdrawRewards(msg.sender, tokenId, rewardTokenAmount + - muReward);
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 160
+    Result: Error
+    Original line:
+                     ? (block.timestamp - _stakeLastBeginTime[tokenId]) / 27 * REWARD_EACH_27_SECONDS
+
+    Mutated line:
+                     ? (block.timestamp - _stakeLastBeginTime[tokenId]) / 27 * / WARD_EACH_27_SECONDS
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 160
+    Result: Error
+    Original line:
+                     ? (block.timestamp - _stakeLastBeginTime[tokenId]) / 27 * REWARD_EACH_27_SECONDS
+
+    Mutated line:
+                     ? (block.timestamp - _stakeLastBeginTime[tokenId]) / *  * REWARD_EACH_27_SECONDS
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/StakingContract.sol
+    Line nr: 160
+    Result: Error
+    Original line:
+                     ? (block.timestamp - _stakeLastBeginTime[tokenId]) / 27 * REWARD_EACH_27_SECONDS
+
+    Mutated line:
+                     ? (block.timestamp - + takeLastBeginTime[tokenId]) / 27 * REWARD_EACH_27_SECONDS
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/NFT721.sol
+    Line nr: 46
+    Result: Killed
+    Original line:
+                 return interfaceId == type(IERC721).interfaceId || interfaceId == type(IERC2981).interfaceId
+
+    Mutated line:
+                 return interfaceId != type(IERC721).interfaceId || interfaceId == type(IERC2981).interfaceId
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/NFT721.sol
+    Line nr: 46
+    Result: Killed
+    Original line:
+                 return interfaceId == type(IERC721).interfaceId || interfaceId == type(IERC2981).interfaceId
+
+    Mutated line:
+                 return interfaceId == type(IERC721).interfaceId || interfaceId != type(IERC2981).interfaceId
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/NFT721.sol
+    Line nr: 56
+    Result: Killed
+    Original line:
+                 require(_totalSupply < MAX_SUPPLY, "Beyond totalSupply");
+
+    Mutated line:
+                 require(_totalSupply <= MAX_SUPPLY, "Beyond totalSupply");
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/NFT721.sol
+    Line nr: 78
+    Result: Killed
+    Original line:
+                 require(_totalSupply < MAX_SUPPLY, "Beyond totalSupply");
+
+    Mutated line:
+                 require(_totalSupply <= MAX_SUPPLY, "Beyond totalSupply");
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/NFT721.sol
+    Line nr: 46
+    Result: Killed
+    Original line:
+                 return interfaceId == type(IERC721).interfaceId || interfaceId == type(IERC2981).interfaceId
+
+    Mutated line:
+                 return interfaceId != type(IERC721).interfaceId || interfaceId == type(IERC2981).interfaceId
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/NFT721.sol
+    Line nr: 46
+    Result: Killed
+    Original line:
+                 return interfaceId == type(IERC721).interfaceId || interfaceId == type(IERC2981).interfaceId
+
+    Mutated line:
+                 return interfaceId == type(IERC721).interfaceId || interfaceId != type(IERC2981).interfaceId
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/NFT721.sol
+    Line nr: 56
+    Result: Killed
+    Original line:
+                 require(_totalSupply < MAX_SUPPLY, "Beyond totalSupply");
+
+    Mutated line:
+                 require(_totalSupply >= MAX_SUPPLY, "Beyond totalSupply");
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/NFT721.sol
+    Line nr: 61
+    Result: Killed
+    Original line:
+                 require(msg.value >= 0.01 ether, "NOT Enough ETH to mint at a discount");
+
+    Mutated line:
+                 require(msg.value < 0.01 ether, "NOT Enough ETH to mint at a discount");
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/NFT721.sol
+    Line nr: 78
+    Result: Killed
+    Original line:
+                 require(_totalSupply < MAX_SUPPLY, "Beyond totalSupply");
+
+    Mutated line:
+                 require(_totalSupply >= MAX_SUPPLY, "Beyond totalSupply");
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/NFT721.sol
+    Line nr: 79
+    Result: Killed
+    Original line:
+                 require(msg.value >= 0.1 ether, "NOT Enough ETH to mint");
+
+    Mutated line:
+                 require(msg.value < 0.1 ether, "NOT Enough ETH to mint");
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/NFT721.sol
+    Line nr: 39
+    Result: Killed
+    Original line:
+                 _setDefaultRoyalty(owner(), 250);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/NFT721.sol
+    Line nr: 46
+    Result: Killed
+    Original line:
+                 return interfaceId == type(IERC721).interfaceId || interfaceId == type(IERC2981).interfaceId
+
+    Mutated line:
+                 return interfaceId == interfaceId || interfaceId == type(IERC2981).interfaceId
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/NFT721.sol
+    Line nr: 46
+    Result: Killed
+    Original line:
+                 return interfaceId == type(IERC721).interfaceId || interfaceId == type(IERC2981).interfaceId
+
+    Mutated line:
+                 return interfaceId == type(IERC721).interfaceId || interfaceId == interfaceId
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/NFT721.sol
+    Line nr: 59
+    Result: Killed
+    Original line:
+                 _verifyProof(proof, index, msg.sender);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/NFT721.sol
+    Line nr: 70
+    Result: Killed
+    Original line:
+                 _safeMint(msg.sender, _totalSupply);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/NFT721.sol
+    Line nr: 82
+    Result: Killed
+    Original line:
+                 _safeMint(msg.sender, _totalSupply);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/NFT721.sol
+    Line nr: 36
+    Result: Error
+    Original line:
+             constructor(bytes32 merkleRoot) ERC721("NFT721", "NFT1") {
+
+    Mutated line:
+             constructor(bytes32 merkleRoot)  {
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/SmartContractTrio/NFT721.sol
+    Line nr: 85
+    Result: Killed
+    Original line:
+             function widthDrawBalance() external onlyOwner {
+
+    Mutated line:
+             function widthDrawBalance() external  {
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/NFTEnumerableContracts/NFTCollection.sol
+    Line nr: 16
+    Result: Killed
+    Original line:
+                 require(totalSupply() + 1 <= MAX_SUPPLY, "Beyond Max Supply");
+
+    Mutated line:
+                 require(totalSupply() + 1 < MAX_SUPPLY, "Beyond Max Supply");
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/NFTEnumerableContracts/NFTCollection.sol
+    Line nr: 22
+    Result: Lived
+    Original line:
+                 return super.supportsInterface(interfaceId) || interfaceId == type(ERC721Enumerable).interfaceId;
+
+    Mutated line:
+                 return super.supportsInterface(interfaceId) || interfaceId != type(ERC721Enumerable).interfaceId;
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/NFTEnumerableContracts/NFTCollection.sol
+    Line nr: 16
+    Result: Killed
+    Original line:
+                 require(totalSupply() + 1 <= MAX_SUPPLY, "Beyond Max Supply");
+
+    Mutated line:
+                 require(totalSupply() + 1 > MAX_SUPPLY, "Beyond Max Supply");
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/NFTEnumerableContracts/NFTCollection.sol
+    Line nr: 22
+    Result: Lived
+    Original line:
+                 return super.supportsInterface(interfaceId) || interfaceId == type(ERC721Enumerable).interfaceId;
+
+    Mutated line:
+                 return super.supportsInterface(interfaceId) || interfaceId != type(ERC721Enumerable).interfaceId;
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/NFTEnumerableContracts/NFTCollection.sol
+    Line nr: 16
+    Result: Killed
+    Original line:
+                 require(totalSupply() + 1 <= MAX_SUPPLY, "Beyond Max Supply");
+
+    Mutated line:
+                 require(totalSupply() - 1 <= MAX_SUPPLY, "Beyond Max Supply");
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/NFTEnumerableContracts/NFTCollection.sol
+    Line nr: 18
+    Result: Killed
+    Original line:
+                 _safeMint(msg.sender, totalSupply() + 1);
+
+    Mutated line:
+                 _safeMint(msg.sender, totalSupply() - 1);
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/NFTEnumerableContracts/NFTCollection.sol
+    Line nr: 18
+    Result: Killed
+    Original line:
+                 _safeMint(msg.sender, totalSupply() + 1);
+
+    Mutated line:
+                 
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/NFTEnumerableContracts/NFTCollection.sol
+    Line nr: 22
+    Result: Lived
+    Original line:
+                 return super.supportsInterface(interfaceId) || interfaceId == type(ERC721Enumerable).interfaceId;
+
+    Mutated line:
+                 return super.supportsInterface(interfaceId) || interfaceId == interfaceId;
+
+
+Mutation:
+    File: /Volumes/data_1/rareskills/Week2_NFT_Staking_Security/src/NFTEnumerableContracts/NFTCollection.sol
+    Line nr: 13
+    Result: Error
+    Original line:
+             constructor() ERC721("NFTCollection", "NFTC") {}
+
+    Mutated line:
+             constructor()  {}
+
+

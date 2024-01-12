@@ -69,3 +69,9 @@ script/MerkleTree/
 #### reference: 
 https://betterprogramming.pub/the-ultimate-100-point-checklist-before-sending-your-smart-contract-for-audit-af9a5b5d95d0  checking
     
+
+## new adds
+
+* Calcualting the rewards is based one tokenId, which means how long the NFT has staked. But if one user send many NFTs to the stakingContract, and how to calculating the rewards while there are many NFTs for one user. The current implementation is calculating each tokenId's rewards then add all. Such as all tokenId's rewards math formula are same, so can have the more efficient way calculating the rewards. So I think  this implementaion should adjust. using other data structure?? 20240112
+
+reference: https://portal.thirdweb.com/contracts/build/extensions/erc-721/ERC721Staking
